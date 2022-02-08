@@ -25,6 +25,7 @@
 - 気になっているマンガの評価を知りたい時
 
 ## 設計書
+[ER図](https://app.diagrams.net/#G1PswDBcaVQjz6xcZE34g9kZxqNn7mwiFZ)
 <準備中>
 
 ## チャレンジ要素一覧
