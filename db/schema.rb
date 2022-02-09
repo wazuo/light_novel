@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2022_02_09_073250) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.string "nickname", null: false
-    t.string "profile_image_id", null: false
-    t.text "introduction", null: false
-    t.boolean "is_deleted", null: false
+    t.string "profile_image_id"
+    t.text "introduction"
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true

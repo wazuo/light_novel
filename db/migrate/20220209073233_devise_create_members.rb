@@ -37,9 +37,9 @@ class DeviseCreateMembers < ActiveRecord::Migration[5.2]
       t.string :first_name_kana, null: false
       t.string :last_name_kana, null: false
       t.string :nickname, null: false
-      t.string :profile_image_id, null: false
-      t.text :introduction, null: false
-      t.boolean :is_deleted, null: false,　default: false
+      t.string :profile_image_id
+      t.text :introduction
+      t.boolean :is_deleted, null: false, default: false
 
 
       t.timestamps null: false

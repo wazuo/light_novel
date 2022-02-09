@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
+  root to: 'public/homes#top'
 
   # 管理者用
   # URL /admin/sign_in...
