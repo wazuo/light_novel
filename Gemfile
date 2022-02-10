@@ -63,7 +63,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ログイン機能
 gem 'devise'
-
+# Bootstrap導入
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+# fontawesomeの利用
+gem 'font-awesome-sass', '~> 5.13'
 # 最終行に追加（デプロイ）
 gem 'dotenv-rails'
 group :production do
