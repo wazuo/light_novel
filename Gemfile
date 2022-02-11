@@ -68,6 +68,10 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 # fontawesomeの利用
 gem 'font-awesome-sass', '~> 5.13'
+# 画像投稿ファイルアップロード
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+# アップロードした画像のリサイズ
+gem "refile-mini_magick"
 # 最終行に追加（デプロイ）
 gem 'dotenv-rails'
 group :production do
