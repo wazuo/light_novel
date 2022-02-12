@@ -1,0 +1,23 @@
+<!--マンガ詳細の表示h文-->
+<h4 class="">タイトル名 : <%= @manga.title%></h4>
+<div class="border border">
+  <div class="text-center">
+  <%= attachment_image_tag @manga, :image, :fill,300,300%>
+  </div>
+</div>
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td>評価</td>
+      <td><%= @manga.review%></td>
+    </tr>
+    <tr>
+      <td>紹介</td>
+      <td><%= @manga.introduction%></td>
+    </tr>
+    <tr>
+      <td>感想</td>
+      <td><%= @manga.impression%></td>
+    </tr>
+  </tbody>
+</table>
