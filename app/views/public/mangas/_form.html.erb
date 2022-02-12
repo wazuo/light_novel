@@ -1,0 +1,25 @@
+<!--マンガの感想＆紹介の投稿フォーム-->
+<%= form_with model: manga,class: "text-center", local:true do |f| %>
+  <div class="form-grop">
+    <%= f.label :image, "マンガの画像"%> <br>
+    <%= attachment_image_tag manga, :image, :fill,60,60, fallback: "no_image.jpg"%>
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, "マンガのタイトル" %> <br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :review, "評価" %>
+    <%#= f.%>
+  </div>
+  <div class="form-group">
+    <%= f.label :introduction, "紹介" %> <br>
+    <%= f.text_area :introduction %>
+  </div>
+  <div class="form-group">
+    <%= f.label :impression, "感想" %> <br>
+    <%= f.text_area :impression %> <br>
+    <%= f.submit '投稿', class: 'btn btn-info'%>
+  </div>
+<% end %>
