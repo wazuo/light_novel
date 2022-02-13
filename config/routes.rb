@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   scope module: 'public' do
     resources :mangas
+    resources :members,only: [:show, :edit, :update]
   end
 
   # 管理者用ログイン機能

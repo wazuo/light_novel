@@ -9,7 +9,7 @@
         <ul class="navbar-nav ml-auto">
         <% if member_signed_in? %>
         <li>
-          <%= link_to "マイページ",root_path, class: "btn btn-outline-secondary"%>
+          <%= link_to "マイページ",member_path(current_member.id), class: "btn btn-outline-secondary"%>
         </li>
           <%= link_to "User",root_path, class: "btn btn-outline-secondary" %>
         <li>
