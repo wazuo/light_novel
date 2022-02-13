@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # 会員側のルーティング設定
   root to: 'public/homes#top'
   scope module: 'public' do
-    resources :mangas
+    resources :mangas do
+      resources :manga_comments, only: [:create, :destroy]
+    end
     resources :members,only: [:show, :edit, :update]
   end
 
