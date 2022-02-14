@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   scope module: 'public' do
     resources :mangas do
+      # マンガの紹介＆感想文へのコメント
       resources :manga_comments, only: [:create, :destroy]
+      # マンガの紹介＆感想文へのいいね
+      resource :favorites, only: [:create, :destroy]
     end
     resources :members,only: [:show, :edit, :update]
   end
