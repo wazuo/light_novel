@@ -20,7 +20,7 @@ class Public::MangaCommentsController < ApplicationController
   end
 
   private
-
+  # マンガの感想＆紹介文のコメントのストロングパラメーター
   def manga_comment_params
     params.require(:manga_comment).permit(:comment)
   end

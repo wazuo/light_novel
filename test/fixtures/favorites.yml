@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mamber_id: 1
+  manga_id: 1
+
+two:
+  mamber_id: 1
+  manga_id: 1
