@@ -72,6 +72,8 @@ gem 'font-awesome-sass', '~> 5.13'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 # アップロードした画像のリサイズ
 gem "refile-mini_magick"
+# デバックのため
+gem 'pry-byebug'
 # 最終行に追加（デプロイ）
 gem 'dotenv-rails'
 group :production do
