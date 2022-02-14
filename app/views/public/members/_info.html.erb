@@ -1,0 +1,7 @@
+<div>
+  <%= attachment_image_tag member, :profile_image, :fill,150,150,fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%>
+</div>
+<div class="text-center">
+  <%= member.nickname%>
+</div>
+<%= link_to '新規投稿',new_manga_path, class: 'btn btn-info'%>
