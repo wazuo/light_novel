@@ -1,23 +1,34 @@
-<!--マンガ詳細の表示h文-->
-<h4 class="">タイトル名 : <%= @manga.title%></h4>
+<!--マンガ詳細の表示テーブル文-->
+<h4 class="">タイトル名 : <%= manga.title%></h4>
 <div class="border border">
   <div class="text-center">
-  <%= attachment_image_tag @manga, :image, :fill,300,300%>
+  <%= attachment_image_tag manga, :image, :fill,300,300%>
+  </div>
+</div>
+<div class="d-flex">
+  <div class="border border col ">
+    コメント数 : <%= manga.manga_comments.count %>
+  </div>
+  <div class="border border col ">いいえ
   </div>
 </div>
 <table class="table table-bordered">
+  <thead>
+    <tr>
+    </tr>
+  </thead>
   <tbody>
     <tr>
       <td>評価</td>
-      <td><%= @manga.review%></td>
+      <td><%= manga.review%></td>
     </tr>
     <tr>
       <td>紹介</td>
-      <td><%= @manga.introduction%></td>
+      <td><%= manga.introduction%></td>
     </tr>
     <tr>
       <td>感想</td>
-      <td><%= @manga.impression%></td>
+      <td><%= manga.impression%></td>
     </tr>
   </tbody>
 </table>

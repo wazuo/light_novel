@@ -1,0 +1,16 @@
+<!--マンガの紹介へのコメント-->
+<div class="text-center border-bottom">
+  <h4>
+    コメント一覧
+  </h4>
+</div>
+<div>
+  <% manga.manga_comments.each do |manga_comment|%>
+    <%= attachment_image_tag manga_comment.member, :profile_image, :fill,60,60, fallback: "no_image.jpg"%>
+    <%= manga_comment.member.nickname %>
+    <%= manga_comment.comment%>
+    <div>
+  <%= link_to 'コメントの削除',manga_manga_comment_path(manga_comment.manga, manga_comment), method: :delete%>
+</div>
+  <% end %>
+</div>
