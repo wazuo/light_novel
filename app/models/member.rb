@@ -3,6 +3,7 @@ class Member < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :mangas
   attachment :profile_image
+  has_many :mangas, dependent: :destroy
+  has_many :manga_comments, dependent: :destroy
 end

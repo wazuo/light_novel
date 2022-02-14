@@ -5,6 +5,7 @@
         <h3 class="text-center">マンガ詳細</h3>
       </div>
       <%= render 'show', manga: @manga%>
+      <%= render 'public/manga_comments/manga_comment', manga: @manga%>
 
     </div>
     <div class="col-3">
@@ -12,5 +13,6 @@
       <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-success'%>
       <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%>
     </div>
+      <%= render 'public/manga_comments/comment_form', manga: @manga,manga_comment: @manga_comment%>
   </div>
 </div>

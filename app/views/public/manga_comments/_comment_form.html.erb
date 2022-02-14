@@ -1,0 +1,6 @@
+<div>
+  <%= form_with(model: [manga, manga_comment], local: true) do |f| %>
+  <%= f.text_area :comment,rows: '5',cols:'30', placeholder: "コメント記入欄" %>
+  <%= f.submit "送信する"%>
+  <% end %>
+</div>

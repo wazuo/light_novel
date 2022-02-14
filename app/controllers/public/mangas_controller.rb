@@ -18,6 +18,7 @@ class Public::MangasController < ApplicationController
 
   def show
     @manga = Manga.find(params[:id])
+    @manga_comment = MangaComment.new
   end
 
   def edit
