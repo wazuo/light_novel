@@ -23,5 +23,9 @@ Rails.application.routes.draw do
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
+  # 管理者側のルーティング設定
+  namespace :admin do 
+    resources 'members',only: [:index, :show, :edit]
+  end
 
 end
