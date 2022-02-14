@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :mangas do
       resources :manga_comments, only: [:create, :destroy]
     end
-    resources :members,only: [:show, :edit, :update]
+    resources :members,only: [:show, :edit, :update, :index]
   end
 
   # 管理者用ログイン機能

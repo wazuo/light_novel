@@ -1,6 +1,10 @@
 class Public::MembersController < ApplicationController
   # 会員の情報関連（マイページ）
 
+  def index
+    @members = Member.all
+  end
+
   def show
     @member = Member.find(params[:id])
   end
