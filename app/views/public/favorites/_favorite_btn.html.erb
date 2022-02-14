@@ -1,15 +1,18 @@
-    <% if manga.favorited_by?(current_member) %>
+<!--いいね機能のビュー画面-->
+<% if manga.favorited_by?(current_member) %><!--もしもマンガの機能に言い値されていたら-->
+  <!--いいねの解除（削除）-->
   <p>
-    <% link_to manga_favorites_path(manga),method: :delete do %>
-    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= link_to manga_favorites_path(manga),method: :delete do %>
+      <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
       <%= manga.favorites.count %>いいね
     <% end %>
   </p>
 <% else %>
+  <!--いいね機能のいいね作成-->
   <p>
     <%= link_to manga_favorites_path(manga), method: :post do %>
-    <i class="fas fa-heart" aria-hidden="true"></i>
-    <%= manga.favorites.count %>いいね
-  <% end %>
+      <i class="fas fa-heart" aria-hidden="true"></i>
+      <%= manga.favorites.count %>いいね
+    <% end %>
   </p>
 <% end %>
