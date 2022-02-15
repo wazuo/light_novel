@@ -16,6 +16,16 @@ class Public::MembersController < ApplicationController
     @member.update(member_params)
     redirect_to member_path(@member)
   end
+  # フォロー一覧
+  def following
+    @member = Member.find(params[:id])
+    @followings = @member.followings.all
+  end
+  # フォロワー一覧
+  def followers
+    @member = Member.find(params[:id])
+    @followers = @member.followers.all
+  end
 
   private
 
