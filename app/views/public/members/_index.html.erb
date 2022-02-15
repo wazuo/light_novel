@@ -1,0 +1,22 @@
+<!--検索結果の表示画面-->
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>自己紹介</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% members.each do |member|%>
+      <tr>
+        <td>
+          <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg", class: "rounded d-block rounded-circle"%>
+          <%= member.nickname%>
+        </td>
+        <td><%= member.introduction%></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

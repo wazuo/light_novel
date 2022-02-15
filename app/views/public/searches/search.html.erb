@@ -1,0 +1,7 @@
+<% if @model == 'member'%>
+  <h3>ユーザの検索結果 "<%= @content %>"の該当一覧</h3>
+  <%= render 'public/members/index', members: @records %>
+<% elsif @model == 'manga' %>
+  <h3>マンガの検索結果 "<%= @content %>"の該当一覧</h3>
+  <%= render 'public/mangas/index', mangas: @records %>
+<% end %>

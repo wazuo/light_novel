@@ -7,8 +7,6 @@ class Public::SearchesController < ApplicationController
     @content = params[:content]
     # 選択した検索方法の値を@methodに代入。
     @method = params[:method]
-    # @model, @content, @methodを代入した、search_forを@recordsに代入。
-    @records = search_for(@model, @content,@method)
     # 選択したモデルがmemberだったら
     if @model == 'member'
       # search_forを@recordsに代入。

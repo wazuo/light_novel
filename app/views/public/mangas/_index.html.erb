@@ -1,0 +1,26 @@
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th></th>
+        <th>マンガのタイトル</th>
+        <th>評価</th>
+        <th>投稿者</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% mangas.each do |manga|%>
+      <tr>
+        <%= link_to manga_path(manga) do%>
+          <th>
+              <%=  attachment_image_tag manga, :image, :fill,60,60 %>
+          </th>
+          <th>
+            <%= manga.title%>
+          </th>
+        <% end %>
+        <th><%#= manga.review%></th>
+        <th><%= manga.member.nickname%></th>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
