@@ -1,0 +1,29 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>フォロー数</th>
+      <th>フォロワー数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% follow.each do |member|%>
+    <tr>
+      <td class="mx-auto">
+        <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg",class: "rounded d-block rounded-circle"%>
+        <%= member.nickname%>
+      </td>
+      <td>
+        <%= link_to following_member_path(member) do%>
+          <%= member.followings.count%>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to followers_member_path(member) do%>
+          <%= member.followers.count%>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
