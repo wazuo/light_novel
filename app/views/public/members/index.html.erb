@@ -1,22 +1,10 @@
 <div class="container">
-  <h4>会員一覧</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>ユーザー名</th>
-        <th>自己紹介</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @members.each do |member|%>
-      <tr>
-        <th><%= attachment_image_tag member, :profile_image,:fill,60,60%> <br>
-          <%= member.nickname%></th>
-        <th><%= member.introduction%></th>
-        <th></th>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col">
+      <div class="border border">
+        <h3 class="text-center">会員一覧</h3>
+      </div>
+      <%= render 'index',members: @members%>
+    </div>
+  </div>
 </div>
