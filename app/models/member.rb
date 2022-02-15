@@ -31,4 +31,21 @@ class Member < ApplicationRecord
   def following?(member)
     followings.include?(member)
   end
+  
+  # 検索メソッド定義
+  def self.search_for(content,method)
+    if method == 'perfect'
+      # 完全一致
+      Member.where(nickname: content)
+    elsif method == 'forward'
+      # 前方一致
+      Member.where('nickname LIKE ?', content+'%')
+    elsif method == 'backward'
+      # 後方一致
+      Member.where('nickname LIKE ?','%' + content)
+    else
+      # 部分一致
+      Member.where('nickname LIKE ?', '%' + content + '%')
+    end
+  end
 end

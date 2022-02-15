@@ -23,6 +23,8 @@ Rails.application.routes.draw do
         get :following, :followers
       end
     end
+    # 検索のルーティング
+    get '/search',to: 'searches#search'
   end
 
   # 管理者用ログイン機能

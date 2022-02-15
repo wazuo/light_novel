@@ -1,10 +1,11 @@
 class Public::MangasController < ApplicationController
+  before_action :authenticate_member!
 
-# マンガの感想＆紹介新規投稿
+  # マンガの感想＆紹介新規投稿
   def new
     @manga = Manga.new
   end
-# マンガの感想＆紹介新規投稿データの保存
+  # マンガの感想＆紹介新規投稿データの保存
   def create
     @manga = Manga.new(manga_params)
     @manga.member_id = current_member.id
