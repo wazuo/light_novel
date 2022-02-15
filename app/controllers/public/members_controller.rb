@@ -1,4 +1,5 @@
 class Public::MembersController < ApplicationController
+  before_action :authenticate_member!
   # 会員の情報関連（マイページ）
 
   def index

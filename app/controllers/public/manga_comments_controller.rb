@@ -1,6 +1,7 @@
 class Public::MangaCommentsController < ApplicationController
+  before_action :authenticate_member!
 
-# 投稿に対するコメントの作成
+  # 投稿に対するコメントの作成
   def create
     # 投稿するためのマンガのidの習得
     manga = Manga.find(params[:manga_id])
