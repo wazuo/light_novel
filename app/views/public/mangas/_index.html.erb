@@ -1,0 +1,29 @@
+<!--マンガの評価一覧-->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>マンガのタイトル</th>
+        <th>評価</th>
+        <th>投稿者</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% mangas.each do |manga|%>
+      <tr>
+          <td>
+            <%= link_to manga_path(manga) do%>
+              <%=  attachment_image_tag manga, :image, :fill,60,60,fallback: "no_image.jpg" %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to manga_path(manga) do%>
+              <%= manga.title%>
+            <% end %>
+          </td>
+        <td><%#= manga.review%></td>
+        <td><%= manga.member.nickname%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>

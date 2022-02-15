@@ -9,7 +9,8 @@
 
     </div>
     <div class="col-3">
-      <%= link_to '新規投稿',new_manga_path, class: 'btn btn-info'%>
+      <%= render 'public/members/info', member: @manga.member%>
+      
       <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-success'%>
       <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%>
     </div>

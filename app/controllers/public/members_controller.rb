@@ -1,4 +1,5 @@
 class Public::MembersController < ApplicationController
+  before_action :authenticate_member!
   # 会員の情報関連（マイページ）
 
   def index
@@ -15,6 +16,16 @@ class Public::MembersController < ApplicationController
     @member = Member.find(params[:id])
     @member.update(member_params)
     redirect_to member_path(@member)
+  end
+  # フォロー一覧
+  def following
+    @member = Member.find(params[:id])
+    @followings = @member.followings.all
+  end
+  # フォロワー一覧
+  def followers
+    @member = Member.find(params[:id])
+    @followers = @member.followers.all
   end
 
   private

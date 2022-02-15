@@ -15,7 +15,16 @@ Rails.application.routes.draw do
       # マンガの紹介＆感想文へのいいね
       resource :favorites, only: [:create, :destroy]
     end
-    resources :members,only: [:show, :edit, :update, :index]
+    # マイページなど会員関連
+    resources :members,only: [:show, :edit, :update, :index] do
+      # フォロー機能
+      resource :relationships,only: [:create, :destroy]
+      member do
+        get :following, :followers
+      end
+    end
+    # 検索のルーティング
+    get '/search',to: 'searches#search'
   end
 
   # 管理者用ログイン機能

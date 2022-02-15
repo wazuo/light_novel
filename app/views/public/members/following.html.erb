@@ -1,0 +1,6 @@
+<div class="container">
+  <h4>
+    <%= @member.nickname%>さんのフォロー一覧
+  </h4>
+</div>
+<%= render 'follow_table', member: @member,follow: @followings%>
