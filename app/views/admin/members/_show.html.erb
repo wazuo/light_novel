@@ -1,0 +1,40 @@
+<table class="table table-bordered text-center">
+  <tbody>
+    <tr>
+      <td>会員ID</td> 
+      <td><%= @member.id%></td>
+    <tr>
+    <tr>
+      <td>プロフィール画像</td> 
+      <td><%= attachment_image_tag member, :profile_image, :fill,200,200, fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%></td>
+    <tr>
+    <tr>
+      <td>名前</td>
+      <td><%= @member.first_name%>　<%= @member.last_name%></td>
+    <tr>
+      <td>フリガナ</td>
+      <td><%= @member.first_name_kana%>　<%= @member.last_name_kana%></td>
+    <tr>
+      <td>ニックネーム</td>
+      <td><%= member.nickname%></td>
+    </tr>
+    <tr>
+      <td>自己紹介</td>
+      <td><%= member.introduction%></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><%= member.email%></td>
+    </tr>
+    <tr>
+      <td>会員ステータス</td>
+      <td>
+        <% if member.is_deleted == true%>
+          <p class="text-danger">退会</p>
+        <% else %>
+          <p class="text-success">有効</p>
+        <% end %>
+        </td>
+    </tr>
+  </tbody>
+</table>

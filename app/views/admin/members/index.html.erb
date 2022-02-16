@@ -1,22 +1,11 @@
 <div class="container">
- <h4>会員一覧</h4>
- <table class="table">
-    <thead>
-      <tr>
-        <th>ユーザー名</th>
-        <th>Eメール</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @members.each do |member|%>
-      <tr>
-        <th><%= attachment_image_tag member, :profile_image,:fill,60,60%> <br>
-          <%= member.nickname%></th>
-        <th><%= member.email%></th>
-        <th></th>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+ <div class="row">
+   <div class="col">
+     <div class="border border">
+       <h4 class"text-center">会員一覧</h4>
+     </div>
+     <!--会員一覧の表示テーブル（管理者）を読み込む-->
+     <%= render 'index', members: @members%>
+   </div>
+ </div>
 </div>

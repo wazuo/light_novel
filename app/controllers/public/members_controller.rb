@@ -27,6 +27,19 @@ class Public::MembersController < ApplicationController
     @member = Member.find(params[:id])
     @followers = @member.followers.all
   end
+  # 退会確認画面
+  def unsubscribe
+  end
+  # 会員の退会の処理
+  def withdrawal
+    @member = Member.find(params[:id])
+    # is_deletedカラムをtrueに変更して削除フラグを立てる
+    @member.update(is_deleted: true)
+    # セッションの削除
+    reset_session
+    flash[:notice] ="退会処理を実行いたしました"
+    redirect_to root_path
+  end
 
   private
 

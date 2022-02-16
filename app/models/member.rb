@@ -31,7 +31,7 @@ class Member < ApplicationRecord
   def following?(member)
     followings.include?(member)
   end
-  
+
   # 検索メソッド定義
   def self.search_for(content,method)
     if method == 'perfect'
@@ -47,5 +47,8 @@ class Member < ApplicationRecord
       # 部分一致
       Member.where('nickname LIKE ?', '%' + content + '%')
     end
+  end
+  def active_for_authentication?
+    super && (is_deleted == false)
   end
 end
