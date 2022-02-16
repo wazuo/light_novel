@@ -1,4 +1,4 @@
-<!--会員一覧の表示画面-->
+<!--会員一覧の表示テーブル（会員-->
   <table class="table table-hover text-center">
     <thead>
       <tr>
@@ -10,7 +10,7 @@
     <tbody>
       <% members.each do |member|%>
       <tr>
-        <td class"mx-auto">
+        <td>
           <%= link_to member_path(member) do%>
             <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg", class: "rounded rounded-circle"%> <br>
             <%= member.nickname%>

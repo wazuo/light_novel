@@ -8,9 +8,8 @@ class Public::SearchesController < ApplicationController
     @content = params[:content]
     # 選択した検索方法の値を@methodに代入。
     @method = params[:method]
-
+    # @methodの値を日本語に変換する
     return_japanese
-
     # 選択したモデルがmemberだったら
     if @model == 'member'
       # search_forを@recordsに代入。

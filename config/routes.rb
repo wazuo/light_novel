@@ -20,7 +20,12 @@ Rails.application.routes.draw do
       # フォロー機能
       resource :relationships,only: [:create, :destroy]
       member do
+        # フォロー・フォロワー一覧
         get :following, :followers
+        # 退会画面表示機能
+        get :unsubscribe
+        # 退会機能
+        patch :withdrawal
       end
     end
     # 検索のルーティング
@@ -32,5 +37,9 @@ Rails.application.routes.draw do
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
+  # 管理者側のルーティング設定
+  namespace :admin do
+    resources 'members',except: [:destroy, :new, :create]
+  end
 
 end
