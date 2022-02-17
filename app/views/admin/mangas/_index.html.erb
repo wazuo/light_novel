@@ -30,6 +30,7 @@
           <div id="star-rate-<%= manga.id %>">
           </div>
           <script>
+          $('#star-rate-<%= manga.id %>').empty();
           $('#star-rate-<%= manga.id %>').raty({
             size: 36,
             starOff:  '<%= asset_path('star-off.png') %>',
@@ -40,7 +41,7 @@
             score: <%= manga.review %>,
           });
           </script>
-          
+
         </td>
         <td><%= manga.member.nickname%></td>
       </tr>

@@ -3,7 +3,7 @@ class Public::MembersController < ApplicationController
   # 会員の情報関連（マイページ）
 
   def index
-    @members = Member.all
+    @members = Member.where(is_deleted: false)
   end
 
   def show
@@ -20,12 +20,12 @@ class Public::MembersController < ApplicationController
   # フォロー一覧
   def following
     @member = Member.find(params[:id])
-    @followings = @member.followings.all
+    @followings = @member.followings.where(is_deleted: false)
   end
   # フォロワー一覧
   def followers
     @member = Member.find(params[:id])
-    @followers = @member.followers.all
+    @followers = @member.followers.where(is_deleted: false)
   end
   # 退会確認画面
   def unsubscribe

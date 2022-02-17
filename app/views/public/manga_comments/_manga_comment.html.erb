@@ -10,7 +10,7 @@
     <%= manga_comment.member.nickname %>
     <%= manga_comment.comment%>
     <div>
-  <%= link_to 'コメントの削除',manga_manga_comment_path(manga_comment.manga, manga_comment), method: :delete%>
-</div>
+      <%= link_to 'コメントの削除',manga_manga_comment_path(manga_comment.manga, manga_comment), method: :delete,"data-confirm" => "本当に削除しますか",remote: true %>
+    </div>
   <% end %>
 </div>
