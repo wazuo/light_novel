@@ -21,7 +21,21 @@
   <tbody>
     <tr>
       <td>評価</td>
-      <td><%= manga.review%></td>
+      <td>
+        <!--星評価-->
+        <div id="star-rate-<%= manga.id %>"></div>
+        <script>
+        $('#star-rate-<%= manga.id %>').raty({
+          size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= manga.review %>,
+        });
+        </script>
+      </td>
     </tr>
     <tr>
       <td>紹介</td>
