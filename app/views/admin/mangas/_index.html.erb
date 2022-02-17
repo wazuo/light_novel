@@ -1,4 +1,4 @@
-<!--マンガの評価一覧-->
+<!--会員一覧の表示テーブル（管理者）-->
   <table class="table table-hover text-center">
     <thead>
       <tr>
@@ -12,12 +12,12 @@
     <% mangas.each do |manga|%>
       <tr>
           <td>
-            <%= link_to manga_path(manga) do%>
+            <%= link_to admin_manga_path(manga) do%>
               <%=  attachment_image_tag manga, :image, :fill,60,60,fallback: "no_image.jpg" %>
             <% end %>
           </td>
           <td>
-            <%= link_to manga_path(manga) do%>
+            <%= link_to admin_manga_path(manga) do%>
               <%= manga.title%>
             <% end %>
           </td>
