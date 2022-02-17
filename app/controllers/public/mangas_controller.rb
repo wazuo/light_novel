@@ -41,7 +41,7 @@ class Public::MangasController < ApplicationController
   # マンガの感想や商家の投稿データのストロングパラメーター
   private
   def manga_params
-    params.require(:manga).permit(:title,:introduction,:impression,:image)
+    params.require(:manga).permit(:title,:introduction,:impression,:image,:review)
   end
-
+# "manga" => {"image": ".....", "title": "test",....."review": 3}
 end

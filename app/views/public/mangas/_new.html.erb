@@ -1,4 +1,4 @@
-<!--マンガの感想＆紹介の投稿フォーム-->
+<!--マンガの感想＆紹介の新規投稿フォーム（星の設定がうまく表記されないため-->
 <%= form_with model: manga,class: "text-center", local:true do |f| %>
   <div class="form-grop">
     <%= f.label :image, "マンガの画像"%> <br>
@@ -21,8 +21,6 @@
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
-    // 星の保存内容の表示（rederで読みこむと新規登録ができなくなるので新たなrender.file(_new.html.erb)を作ることになった要因
-    score: <%= manga.review %>,
     scoreName: 'manga[review]',
     half: true,
   });

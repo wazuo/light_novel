@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   # 管理者側のルーティング設定
   namespace :admin do
     resources 'members',except: [:destroy, :new, :create]
+    resources 'mangas', only: [:index, :show, :destroy]
   end
 
 end

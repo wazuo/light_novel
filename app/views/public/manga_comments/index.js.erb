@@ -1,0 +1,3 @@
+$("#comments-count").html("コメント数 : <%= @manga.manga_comments.count %>");
+$("#comment-area").html("<%= j(render 'public/manga_comments/manga_comment',manga: @manga)%>");
+$("#manga_comment_comment").val("");
