@@ -9,7 +9,7 @@
   <div class="border border col ">
     コメント数 : <%= manga.manga_comments.count %>
   </div>
-  <div class="border border col ">
+  <div class="border border col " id="favorite_btn_<%= manga.id %>">
     <%= render 'public/favorites/favorite_btn', manga: manga%>
   </div>
 </div>
