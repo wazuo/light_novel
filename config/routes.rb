@@ -28,6 +28,9 @@ Rails.application.routes.draw do
         patch :withdrawal
       end
     end
+    # フォロワー同士のDM
+    resources :messages,only: [:create, :show]
+    # get 'message/:id', to: 'messages#show', as: 'message'
     # 検索のルーティング
     get '/search',to: 'searches#search'
   end

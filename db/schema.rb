@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 2022_02_18_080812) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

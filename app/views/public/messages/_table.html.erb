@@ -1,0 +1,23 @@
+<table class="table text-center" id="message">
+  <thead>
+    <tr>
+      <th><%= current_member.nickname%></th>
+      <th><%= @member.nickname%></th>
+    </tr>
+  </thead>
+  <% @messages.each do |message| %>
+  <% if message.member_id == current_member.id%>
+  <%= render 'message', message: message%>
+   <% else %>
+    <tbody>
+      <tr>
+        <th></th>
+        <th>
+          <p class="text-right"><%= message.message%></p>
+        </th>
+      </tr>
+    </tbody>
+    <% end %>
+  <% end %>
+
+</table>
