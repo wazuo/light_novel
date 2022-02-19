@@ -7,6 +7,9 @@
       </div>
       <%= render 'table', member: @member%>
       <%= link_to 'プロフィール編集',edit_member_path, class: 'btn btn-success'%>
+      <% if current_member != @member%>
+        <%= link_to 'メッセージを送る',message_path(@member)%>
+      <% end %>
     </div>
   </div>
 </div>
