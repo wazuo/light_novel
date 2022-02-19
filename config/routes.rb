@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   }
   # 会員側のルーティング設定
   root to: 'public/homes#top'
+  # about画面のルーティング
+  get '/about',to: 'public/homes#about'
   scope module: 'public' do
     resources :mangas do
       # マンガの紹介＆感想文へのコメント
