@@ -18,7 +18,7 @@ class Public::ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    if @contact.save!
+    if @contact.save
       ContactMailer.send_mail(@contact).deliver_now
       redirect_to done_path
     else
