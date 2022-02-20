@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   # about画面のルーティング
   get '/about',to: 'public/homes#about'
   scope module: 'public' do
+    # お問い合わせのルーティング
+    resources :contacts,only: [:new, :create] do
+      collection do
+        post :confirm, :back
+      end
+    end
+    get 'done', to: 'contacts#done',as: 'done'
     resources :mangas do
       # マンガの紹介＆感想文へのコメント
       resources :manga_comments, only: [:create, :destroy]

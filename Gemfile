@@ -74,6 +74,9 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 # デバックのため
 gem 'pry-byebug'
+# enumと日本語化のため導入
+gem 'rails-i18n'
+gem 'enum_help'
 # 最終行に追加（デプロイ）
 gem 'dotenv-rails'
 group :production do

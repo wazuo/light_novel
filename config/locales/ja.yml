@@ -1,0 +1,9 @@
+ja:
+  enums:
+    contact:
+      subject:
+        manga: 'マンガ紹介＆感想関連'
+        message: 'DM機能'
+        review: '評価レビュー'
+        follower: 'フォロー機能'
+        other: 'その他お問い合わせ'
