@@ -14,10 +14,12 @@
     </div>
     <div class="col-3">
       <%= render 'public/members/info', member: @manga.member%>
-      
-      <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-success'%>
-      
-      <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%>
+
+      <% if current_member == @manga.member %>
+        <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-success'%>
+
+        <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%>
+      <% end %>
     </div>
       <%= render 'public/manga_comments/comment_form', manga: @manga,manga_comment: @manga_comment%>
   </div>
