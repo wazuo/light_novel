@@ -7,8 +7,8 @@
       </div>
       <%= render 'table', member: @member%>
       <% if current_member == @member %>
-        <%= link_to 'プロフィール編集',edit_member_path, class: 'btn btn-success'%>
-        <%= link_to 'マンガ紹介＆感想新規投稿',new_manga_path,class: 'btn btn-info'%>
+        <%= link_to 'プロフィール編集',edit_member_path, class: 'btn btn-secondary'%>
+        <%= link_to 'マンガ紹介＆感想新規投稿',new_manga_path,class: 'btn btn-success'%>
       <% end %>
       <% if current_member != @member%>
         <%= link_to 'メッセージを送る',message_path(@member)%>

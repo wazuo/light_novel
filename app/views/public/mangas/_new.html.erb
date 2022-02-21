@@ -14,6 +14,8 @@
     <%= f.hidden_field :review, id: :review_star %>
   </div>
 
+  <%#= binding.irb %>
+
   <!-- 評価javascript -->
   <script>
   $('#star').raty({
@@ -21,6 +23,7 @@
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
+    score: <%= manga.review ||= 0 %>,
     scoreName: 'manga[review]',
     half: true,
   });

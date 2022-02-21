@@ -22,7 +22,7 @@
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
     // 星の保存内容の表示（rederで読みこむと新規登録ができなくなるので新たなrender.file(_new.html.erb)を作ることになった要因
-    score: <%= manga.review %>,
+    score: <%= manga.review ||= 0 %>,
     scoreName: 'manga[review]',
     half: true,
   });
