@@ -16,6 +16,7 @@
 
   <!-- 評価javascript -->
   <script>
+  $('#star').empty();
   $('#star').raty({
     size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
@@ -34,6 +35,10 @@
   <div class="form-group">
     <%= f.label :impression, "感想" %> <br>
     <%= f.text_area :impression %> <br>
-    <%= f.submit '投稿', class: 'btn btn-info'%>
+    <% if local_assigns[:edit_flag].present? %>
+      <%= f.submit '更新', class: 'btn btn-info'%>
+    <% else %>
+      <%= f.submit '投稿', class: 'btn btn-success'%>
+    <% end %>
   </div>
 <% end %>
