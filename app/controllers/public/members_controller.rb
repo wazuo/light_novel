@@ -1,5 +1,6 @@
 class Public::MembersController < ApplicationController
   before_action :authenticate_member!
+  before_action :ensure_current_member ,only:[:edit, :update]
   # 会員の情報関連（マイページ）
 
   def index
@@ -14,8 +15,11 @@ class Public::MembersController < ApplicationController
   end
   def update
     @member = Member.find(params[:id])
-    @member.update(member_params)
-    redirect_to member_path(@member)
+    if @member.update(member_params)
+      redirect_to member_path(@member)
+    else
+      render :edit
+    end
   end
   # フォロー一覧
   def following
@@ -47,4 +51,11 @@ class Public::MembersController < ApplicationController
       params.require(:member).permit(:profile_image, :first_name, :last_name, :first_name_kana,:last_name_kana, :nickname, :introduction, :email)
     end
 
+    def ensure_current_member
+      @member = Member.find(params[:id])
+      unless @member == current_member
+        flash[:notice] = '権限がありません'
+       redirect_to members_path
+    end
+  end
 end

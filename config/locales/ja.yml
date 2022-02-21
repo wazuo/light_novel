@@ -7,3 +7,15 @@ ja:
         review: '評価レビュー'
         follower: 'フォロー機能'
         other: 'その他お問い合わせ'
+  activerecord:
+    attributes:
+      manga:
+        title: 'タイトル'
+        review: '評価(レビュー)の星'
+      member:
+        first_name: '(姓)'
+        last_name: '(名)'
+        first_name_kana: '(セイ)'
+        last_name_kana: '(名)'
+        nickname: 'ニックネーム'
+        email: 'Eメール'

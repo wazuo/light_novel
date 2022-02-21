@@ -30,8 +30,9 @@
       <%= f.label :'Eメール', class: 'col-md-2 form-label' %>
       <%= f.text_field :email, class: 'form-controll',size: "60"%><br>
       <%= f.submit :'保存', class: 'btn btn-success' %>
-      <%= link_to '退会する',unsubscribe_member_path(member),class: 'btn btn-danger'%>
     </div>
+      <%= link_to 'プロフィール画面へ戻る',member_path(member),class: 'btn btn-secondary'%>
+      <%= link_to '退会する',unsubscribe_member_path(member),class: 'btn btn-danger'%>
   <% end %>
 </div>
 

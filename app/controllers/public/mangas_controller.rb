@@ -1,6 +1,6 @@
 class Public::MangasController < ApplicationController
   before_action :authenticate_member!
-
+  before_action :ensure_current_member ,only:[:edit, :update]
   # マンガの感想＆紹介新規投稿
   def new
     @manga = Manga.new
@@ -9,8 +9,11 @@ class Public::MangasController < ApplicationController
   def create
     @manga = Manga.new(manga_params)
     @manga.member_id = current_member.id
-    @manga.save
-    redirect_to mangas_path
+    if @manga.save
+     redirect_to mangas_path
+    else
+    render :new
+    end
   end
 
   def index
@@ -28,8 +31,11 @@ class Public::MangasController < ApplicationController
 
   def update
     @manga = Manga.find(params[:id])
-    @manga.update(manga_params)
-    redirect_to manga_path(@manga)
+    if @manga.update(manga_params)
+      redirect_to manga_path(@manga)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -44,4 +50,12 @@ class Public::MangasController < ApplicationController
     params.require(:manga).permit(:title,:introduction,:impression,:image,:review)
   end
 # "manga" => {"image": ".....", "title": "test",....."review": 3}
+
+  def ensure_current_member
+    @manga = Manga.find(params[:id])
+    unless @manga.member == current_member
+      flash[:notice] = '権限がありません'
+      redirect_to mangas_path
+    end
+  end
 end
