@@ -1,6 +1,6 @@
 class Public::MembersController < ApplicationController
   before_action :authenticate_member!
-  before_action :ensure_current_member ,only:[:edit, :update]
+  before_action :ensure_current_member ,only:[:edit, :update, :unsubscribe]
   # 会員の情報関連（マイページ）
 
   def index
@@ -10,13 +10,20 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
   end
+
+  def detail
+    @member = Member.find(params[:id])
+    @mangas = @member.mangas
+    # binding.pry
+  end
+
   def edit
     @member = Member.find(params[:id])
   end
   def update
     @member = Member.find(params[:id])
     if @member.update(member_params)
-      redirect_to member_path(@member)
+      redirect_to member_path(@member),notice: '更新しました'
     else
       render :edit
     end
@@ -41,21 +48,19 @@ class Public::MembersController < ApplicationController
     @member.update(is_deleted: true)
     # セッションの削除
     reset_session
-    flash[:notice] ="退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to root_path,notice: '退会処理を実行しました'
   end
 
   private
 
-    def member_params
-      params.require(:member).permit(:profile_image, :first_name, :last_name, :first_name_kana,:last_name_kana, :nickname, :introduction, :email)
-    end
+  def member_params
+    params.require(:member).permit(:profile_image, :first_name, :last_name, :first_name_kana,:last_name_kana, :nickname, :introduction, :email)
+  end
 
-    def ensure_current_member
-      @member = Member.find(params[:id])
-      unless @member == current_member
-        flash[:notice] = '権限がありません'
-       redirect_to members_path
+  def ensure_current_member
+    @member = Member.find(params[:id])
+    unless @member == current_member
+     redirect_to members_path,notice: '権限がありません'
     end
   end
 end

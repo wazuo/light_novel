@@ -12,5 +12,17 @@
       <td>自己紹介</td>
       <td><%= member.introduction%></td>
     </tr>
+    <tr>
+      <td>
+        <%= link_to following_member_path(member) do%>
+          フォロー数<%= member.followings.count%>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to followers_member_path(member) do%>
+          フォロワー数<%= member.followers.count%>
+        <% end %>
+      </td>
+    </tr>
   </tbody>
 </table>

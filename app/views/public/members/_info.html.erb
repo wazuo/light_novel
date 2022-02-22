@@ -12,10 +12,13 @@
     フォロワー数<%= member.followers.count%>
   <% end %>
 </div>
-<% if current_member.following?(member)%>
-  <%= link_to "フォローを外す",member_relationships_path(member.id), method: :delete, class: 'btn btn-primary'%>
-<% else %>
-  <%= link_to "フォローする",member_relationships_path(member.id), method: :post,class: 'btn btn-success'%>
+
+<% unless  current_member == member%>
+  <% if current_member.following?(member) %>
+    <%= link_to "フォローを外す",member_relationships_path(member.id), method: :delete, class: 'btn btn-primary'%>
+  <% else %>
+    <%= link_to "フォローする",member_relationships_path(member.id), method: :post,class: 'btn btn-success'%>
+  <% end %>
 <% end %>
 
 <%= link_to '新規投稿',new_manga_path, class: 'btn btn-success'%>

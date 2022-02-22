@@ -10,7 +10,7 @@ class Public::MangasController < ApplicationController
     @manga = Manga.new(manga_params)
     @manga.member_id = current_member.id
     if @manga.save
-     redirect_to mangas_path
+     redirect_to manga_path(@manga),notice: '投稿されました'
     else
     render :new
     end
@@ -32,7 +32,7 @@ class Public::MangasController < ApplicationController
   def update
     @manga = Manga.find(params[:id])
     if @manga.update(manga_params)
-      redirect_to manga_path(@manga)
+      redirect_to manga_path(@manga),notice: '更新されました'
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class Public::MangasController < ApplicationController
   def destroy
     @manga = Manga.find(params[:id])
     @manga.destroy
-    redirect_to mangas_path
+    redirect_to mangas_path,notice: '削除しました'
   end
 
   # マンガの感想や商家の投稿データのストロングパラメーター
