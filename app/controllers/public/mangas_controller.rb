@@ -17,7 +17,8 @@ class Public::MangasController < ApplicationController
   end
 
   def index
-    @mangas = Manga.all
+    @mangas = Manga.page(params[:page]).per(8)
+
   end
 
   def show

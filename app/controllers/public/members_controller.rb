@@ -4,7 +4,8 @@ class Public::MembersController < ApplicationController
   # 会員の情報関連（マイページ）
 
   def index
-    @members = Member.where(is_deleted: false)
+    # @members = Member.where(is_deleted: false)
+    @members = Member.page(params[:page]).per(8)
   end
 
   def show
@@ -13,7 +14,7 @@ class Public::MembersController < ApplicationController
 
   def detail
     @member = Member.find(params[:id])
-    @mangas = @member.mangas
+    @mangas = @member.mangas.page(params[:page]).per(8)
     # binding.pry
   end
 
@@ -31,12 +32,14 @@ class Public::MembersController < ApplicationController
   # フォロー一覧
   def following
     @member = Member.find(params[:id])
-    @followings = @member.followings.where(is_deleted: false)
+    @followings = @member.followings.page(params[:page]).per(8)
+    # @followings = @member.followings.where(is_deleted: false)
   end
   # フォロワー一覧
   def followers
     @member = Member.find(params[:id])
-    @followers = @member.followers.where(is_deleted: false)
+    @followers = @member.followers.page(params[:page]).per(8)
+    # @followers = @member.followers.where(is_deleted: false)
   end
   # 退会確認画面
   def unsubscribe

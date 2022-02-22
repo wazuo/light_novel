@@ -72,6 +72,8 @@ gem 'font-awesome-sass', '~> 5.13'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 # アップロードした画像のリサイズ
 gem "refile-mini_magick"
+# ページ調整のため
+gem 'kaminari','~> 1.2.1'
 # デバックのため
 gem 'pry-byebug'
 # enumと日本語化のため導入
