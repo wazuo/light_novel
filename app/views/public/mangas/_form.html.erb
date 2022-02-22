@@ -16,13 +16,14 @@
 
   <!-- 評価javascript -->
   <script>
+  $('#star').empty();
   $('#star').raty({
     size     : 36,
     starOff:  '<%= asset_path('star-off.png') %>',
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
     // 星の保存内容の表示（rederで読みこむと新規登録ができなくなるので新たなrender.file(_new.html.erb)を作ることになった要因
-    score: <%= manga.review %>,
+    score: <%= manga.review ||= 0 %>,
     scoreName: 'manga[review]',
     half: true,
   });
@@ -34,6 +35,10 @@
   <div class="form-group">
     <%= f.label :impression, "感想" %> <br>
     <%= f.text_area :impression %> <br>
-    <%= f.submit '投稿', class: 'btn btn-info'%>
+    <% if local_assigns[:edit_flag].present? %>
+      <%= f.submit '更新', class: 'btn btn-info'%>
+    <% else %>
+      <%= f.submit '投稿', class: 'btn btn-success'%>
+    <% end %>
   </div>
 <% end %>

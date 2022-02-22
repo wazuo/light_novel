@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     end
     # マイページなど会員関連
     resources :members,only: [:show, :edit, :update, :index] do
+      member do
+        get :detail
+      end
       # フォロー機能
       resource :relationships,only: [:create, :destroy]
       member do

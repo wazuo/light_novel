@@ -13,11 +13,11 @@ class Public::SearchesController < ApplicationController
     # 選択したモデルがmemberだったら
     if @model == 'member'
       # search_forを@recordsに代入。
-      @records = Member.search_for(@content,@method)
+      @records = Member.search_for(@content,@method).page(params[:page]).per(8)
       # modelでなかったら
     else
       # search_forを@recordsに代入。
-      @records = Manga.search_for(@content,@method)
+      @records = Manga.search_for(@content,@method).page(params[:page]).per(8)
     end
   end
 

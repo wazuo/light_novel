@@ -10,7 +10,9 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <%= flash[:notice] %>
+    <div class="text-center text-success">
+      <%= flash[:notice] %>
+    </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

@@ -19,6 +19,13 @@ class Member < ApplicationRecord
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings,through: :relationships, source: :followed
 
+
+  # バリデーション機能
+  # 新規投稿
+  validates :first_name, :last_name, :nickname, presence: true
+  validates :last_name, presence: true
+  validates :first_name_kana, :last_name_kana, presence: true, format: { with: /\p{katakana}/,message: "全角カタカナのみが使えます"}
+
   # 会員のフォローのメソッド定義
   def follow(member_id)
      relationships.create(followed_id: member_id)
