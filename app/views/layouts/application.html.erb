@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LightNobel</title>
+    <title>Manga_Utopia</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,12 +9,17 @@
   </head>
 
   <body>
+    <div class="main-visual">
     <%= render 'layouts/header' %>
-    <div class="text-center text-success">
-      <%= flash[:notice] %>
+    <div class="text-center text-success h4">
+      <strong><%= flash[:notice] %></strong>
+    </div>
+    <div class="text-center text-danger h4">
+      <strong><%= flash[:alert] %></strong>
     </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
 

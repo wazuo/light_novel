@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     end
     # マイページなど会員関連
     resources :members,only: [:show, :edit, :update, :index] do
+    # ユーザ別の投稿一覧
       member do
         get :detail
       end
@@ -54,8 +55,14 @@ Rails.application.routes.draw do
   }
   # 管理者側のルーティング設定
   namespace :admin do
-    resources 'members',except: [:destroy, :new, :create]
+    resources 'members',except: [:destroy, :new, :create] do
+    # ユーザ別の投稿一覧
+      member do
+        get :detail
+      end
+    end
     resources 'mangas', only: [:index, :show, :destroy]
+  # 検索のルーティング
+    get '/search',to: 'searches#search'
   end
-
 end

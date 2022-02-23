@@ -4,10 +4,11 @@
       <div class="border border">
           <h3 class="text-center"><%= @member.first_name%><%= @member.last_name%>さんの詳細ページ</h3>
       </div>
+      <!--ユーザのプロフィール詳細を読み込む-->
       <%= render 'show', member: @member%>
-      <%= link_to "#{@member.first_name} #{@member.last_name}さんの編集",edit_admin_member_path,class: 'btn btn-success'%>
-
+      <%= link_to "#{@member.first_name} #{@member.last_name}さんの編集",edit_admin_member_path,class: 'btn btn-secondary'%> 
+      <%= link_to "#{@member.first_name} #{@member.last_name}さんの投稿一覧",detail_admin_member_path,class: 'btn btn-info'%>
+      <%= link_to "会員一覧表",admin_members_path,class: 'btn btn-info'%>
+      </div>
     </div>
-  </div>
-
 </div>

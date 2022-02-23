@@ -1,14 +1,18 @@
 <!--マンガの紹介へのコメント-->
-<div class="text-center border-bottom">
+<div class="text-center border-bottom justify-center">
   <h4>
     コメント一覧
   </h4>
-</div>
-<div>
   <% manga.manga_comments.each do |manga_comment|%>
-    <%= attachment_image_tag manga_comment.member, :profile_image, :fill,60,60, fallback: "no_image.jpg"%>
+  <div class="comment d-flex">
+    <div class="col-3">
+    <%= attachment_image_tag manga_comment.member, :profile_image, :fill,60,60, fallback: "no_image.jpg"%> <br>
     <%= manga_comment.member.nickname %>
-    <%= manga_comment.comment%>
+    </div>
+    <div class="col-9 border rounded-circle bg-primary ">
+      <h5 class="align-bottom"><%= manga_comment.comment%></h5>
+    </div>
+  </div>
     <div>
       <%= link_to 'コメントの削除',manga_manga_comment_path(manga_comment.manga, manga_comment), method: :delete,"data-confirm" => "本当に削除しますか",remote: true %>
     </div>

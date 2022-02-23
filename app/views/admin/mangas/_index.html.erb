@@ -1,4 +1,4 @@
-<!--会員一覧の表示テーブル（管理者）-->
+<!--マンガ評価一覧表示テーブル（管理者）-->
   <table class="table table-hover text-center">
     <thead>
       <tr>
@@ -43,8 +43,11 @@
           </script>
 
         </td>
-        <td><%= manga.member.nickname%></td>
+        <td><%= manga.member.first_name%><%= manga.member.last_name%></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <div class="pagination">
+    <%= paginate mangas%>
+  </div>

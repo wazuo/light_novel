@@ -10,6 +10,11 @@ class Admin::MembersController < ApplicationController
     @member = Member.find(params[:id])
   end
 
+  def detail
+    @member = Member.find(params[:id])
+    @mangas = @member.mangas.page(params[:page]).per(8)
+  end
+
   def edit
     @member = Member.find(params[:id])
   end

@@ -8,6 +8,8 @@ ja:
         follower: 'フォロー機能'
         other: 'その他お問い合わせ'
   activerecord:
+    models:
+      member: '会員情報'
     attributes:
       manga:
         title: 'タイトル'
