@@ -10,6 +10,8 @@
         <!--マンガの感想＆紹介のコメントの読み込み-->
         <%= render 'public/manga_comments/manga_comment', manga: @manga%>
       </div>
+      <!--マンガ感想＆紹介のコメント一覧-->
+      <%= render 'public/manga_comments/comment_form', manga: @manga,manga_comment: @manga_comment%>
 
     </div>
     <div class="col-3">
@@ -21,6 +23,5 @@
         <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%>
       <% end %>
     </div>
-      <%= render 'public/manga_comments/comment_form', manga: @manga,manga_comment: @manga_comment%>
   </div>
 </div>

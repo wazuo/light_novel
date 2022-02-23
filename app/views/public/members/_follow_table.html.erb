@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-hover text-center">
   <thead>
     <tr>
       <th>名前</th>
@@ -9,9 +9,11 @@
   <tbody>
     <% follow.each do |member|%>
     <tr>
-      <td class="mx-auto">
-        <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg",class: "rounded d-block rounded-circle"%>
-        <%= member.nickname%>
+      <td>
+        <%= link_to member_path(member) do%>
+          <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg",class: "rounded rounded-circle"%> <br>
+          <%= member.nickname%>
+        <% end%>
       </td>
       <td>
         <%= link_to following_member_path(member) do%>

@@ -11,7 +11,7 @@ class Public::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
   end
-
+# ユーザ毎の投稿一覧画面
   def detail
     @member = Member.find(params[:id])
     @mangas = @member.mangas.page(params[:page]).per(8)
