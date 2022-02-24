@@ -1,6 +1,6 @@
 class Public::MangasController < ApplicationController
   before_action :authenticate_member!
-  before_action :ensure_current_member ,only:[:edit, :update]
+  before_action :ensure_current_member ,only:[:edit, :update, :destroy]
   # マンガの感想＆紹介新規投稿
   def new
     @manga = Manga.new
@@ -55,7 +55,7 @@ class Public::MangasController < ApplicationController
   def ensure_current_member
     @manga = Manga.find(params[:id])
     unless @manga.member == current_member
-      flash[:notice] = '権限がありません'
+      flash[:alert] = '権限がありません'
       redirect_to mangas_path
     end
   end

@@ -1,6 +1,5 @@
 class Public::MangaCommentsController < ApplicationController
   before_action :authenticate_member!
-
   # 投稿に対するコメントの作成
   def create
     # 投稿するためのマンガのidの習得
@@ -17,8 +16,8 @@ class Public::MangaCommentsController < ApplicationController
   # コメント投稿の削除
   def destroy
     # 削除するコメントのidを習得し削除する
-    MangaComment.find_by(id:params[:id]).destroy
     @manga = Manga.find(params[:manga_id])
+    MangaComment.find_by(id:params[:id]).destroy
     # 非同期化のためredirect_toは削除
     render :index
   end

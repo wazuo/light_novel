@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col text-center">
+      <%= render 'layouts/errors',object: @contact%>
       <%= form_with model: @contact,url: confirm_contacts_path,method: :post, local:true do |f| %>
         <div class="form-group">
           <%= f.label :name, 'お名前*' %>

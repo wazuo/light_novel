@@ -1,5 +1,5 @@
 <%= form_with model: message, reomte: true do |f|%>
-  <%=f.text_field :message %>
+  <%=f.text_area :message,autofocus: true,row: '50',cols: '100', placeholder: 'メッセージ記入欄（空欄送信不可）'%>
   <%=f.hidden_field :room_id %>
   <%=f.submit '送信',class: "btn btn-success"%>
 <%end%>
