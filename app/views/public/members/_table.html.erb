@@ -1,9 +1,9 @@
 <!--プロフィール詳細のテーブル-->
-<table class="table table-bordered text-center">
+<table class="table table-bordered text-center h4">
   <tbody>
     <tr>
-      <td>プロフィール画像</td>
-      <td class="image"><%= attachment_image_tag member, :profile_image, :fill,200,200, fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%></td>
+      <td  id="profile_image">プロフィール画像</td>
+      <td class="image"><%= attachment_image_tag member, :profile_image, :fill,200,200, fallback: "no_image.jpg",class: "rounded mx-auto rounded-circle pt-4 pb-4"%></td>
     <tr>
       <td>ニックネーム</td>
       <td><%= member.nickname%></td>
@@ -13,15 +13,11 @@
       <td><%= member.introduction%></td>
     </tr>
     <tr>
-      <td>
-        <%= link_to following_member_path(member) do%>
-          フォロー数<%= member.followings.count%>
-        <% end %>
+      <td class="text-success">
+        <%= link_to 'フォロー数 ' + @member.followings.count.to_s ,following_member_path(member), class: 'text-dark'%>
       </td>
       <td>
-        <%= link_to followers_member_path(member) do%>
-          フォロワー数<%= member.followers.count%>
-        <% end %>
+        <%= link_to 'フォロワー数 ' + @member.followers.count.to_s ,followers_member_path(member), class: 'text-dark'%>
       </td>
     </tr>
   </tbody>

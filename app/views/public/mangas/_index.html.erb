@@ -6,17 +6,19 @@
       <th>マンガのタイトル</th>
       <th>評価</th>
       <th>投稿者</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
   <% mangas.each do |manga|%>
     <tr>
-        <td>
+        <td class="">
           <%= link_to manga_path(manga) do%>
             <%=  attachment_image_tag manga, :image, :fill,60,60,fallback: "no_image.jpg" %>
           <% end %>
         </td>
-        <td>
+        <td class="pt-4 pb-4">
           <%= link_to manga_path(manga) do%>
             <%= manga.title%>
           <% end %>
@@ -41,9 +43,12 @@
           score: <%= manga.review %>,
         });
         </script>
-
       </td>
-      <td><%= manga.member.nickname%></td>
+      <td class="pt-4 pb-4"><%= manga.member.nickname%></td>
+      <td class="pt-4 pb-4"><%= link_to '詳細',manga_path(manga),class: 'btn btn-secondary'%></td>
+      <% if current_member == manga.member%>
+      <td class="pt-4 pb-4"><%= link_to '削除',manga_path(manga),method: :delete,"data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

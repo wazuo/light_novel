@@ -1,24 +1,22 @@
+<!--ユーザの画面（会員）-->
+<% if current_member == member %>
+  <div class="text-center h5">ログイン <br>ユーザー</div>
+<% else %>
+<div class="text-center h4">投稿者</div>
+<% end %>
 <div>
-  <%= attachment_image_tag member, :profile_image, :fill,150,150,fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%>
+  <%= link_to member_path(member) do%>
+    <%= attachment_image_tag member, :profile_image, :fill,100,100,fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%>
+  <% end %>
 </div>
 <div class="text-center">
   <%= member.nickname%>
 </div>
 <div class="text-center">
-  <%= link_to following_member_path(member) do%>
-    フォロー数<%= member.followings.count%>
-  <% end %>
-  <%= link_to followers_member_path(member) do%>
-    フォロワー数<%= member.followers.count%>
-  <% end %>
+  <%= link_to 'フォロー数 ' + member.followings.count.to_s ,following_member_path(member), class: 'text-dark'%> <br>
+  <%= link_to 'フォロワー数 ' + member.followers.count.to_s ,followers_member_path(member), class: 'text-dark'%>
 </div>
-
-<% unless  current_member == member%>
-  <% if current_member.following?(member) %>
-    <%= link_to "フォローを外す",member_relationships_path(member.id), method: :delete, class: 'btn btn-primary'%>
-  <% else %>
-    <%= link_to "フォローする",member_relationships_path(member.id), method: :post,class: 'btn btn-success'%>
-  <% end %>
+<% if current_member == member %>
+ <%= link_to '新規投稿',new_manga_path, class: 'btn btn-success mt-2'%>
 <% end %>
-
-<%= link_to '新規投稿',new_manga_path, class: 'btn btn-success'%>
+<%= link_to member.nickname + 'の投稿一覧',detail_member_path(member), class: 'btn btn-info mt-2'%>

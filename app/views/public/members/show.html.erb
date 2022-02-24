@@ -1,26 +1,28 @@
 <!--会員の詳細ページ-->
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col text-center">
       <div class="border border">
-        <h3 class="text-center"><%= @member.nickname%>さんのプロフィール</h3>
+        <h3><%= @member.nickname%>さんのプロフィール</h3>
       </div>
+      <!--プロフィール詳細のテーブルを読み込む-->
       <%= render 'table', member: @member%>
-      <% if current_member == @member %>
-        <%= link_to 'プロフィール編集',edit_member_path, class: 'btn btn-secondary'%>
-        <%= link_to 'マンガ紹介＆感想新規投稿',new_manga_path,class: 'btn btn-success'%>
-      <% end %>
-      <%= link_to @member.nickname + 'のマンガ評価一覧へ',detail_member_path,class: 'btn btn-primary'%>
-      <% if current_member != @member%>
-        <%= link_to 'メッセージを送る',message_path(@member)%>
-      <% end %>
-      <% unless  current_member == @member%>
-        <% if current_member.following?(@member) %>
-        <%= link_to "フォローを外す",member_relationships_path(@member.id), method: :delete, class: 'btn btn-primary'%>
-        <% else %>
-        <%= link_to "フォローする",member_relationships_path(@member.id), method: :post,class: 'btn btn-success'%>
+      <div>
+        <% if current_member == @member %>
+          <%= link_to 'プロフィール編集',edit_member_path, class: 'btn btn-secondary '%>
+          <%= link_to 'マンガ紹介＆感想新規投稿',new_manga_path,class: 'btn btn-success '%>
         <% end %>
+      </div>
+      <% if current_member != @member%>
+        <%= link_to 'メッセージを送る',message_path(@member),class: 'btn btn-dark'%>
       <% end %>
+      <!--フォローのボタンを読み込む-->
+      <%= render 'public/relationships/follow-btn',member: @member%>
+      <div class="text-center mt-2">
+        <%= link_to @member.nickname + 'の評価一覧',detail_member_path,class: 'btn btn-info'%>
+        <%= link_to 'マンガ評価一覧',mangas_path,class: 'btn btn-info'%>
+        <%= link_to 'ユーザー一覧',members_path,class: 'btn btn-info'%>
+      </div>
     </div>
   </div>
 </div>

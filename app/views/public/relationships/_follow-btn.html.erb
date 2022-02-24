@@ -2,8 +2,8 @@
 <!--自分にはフォローできない-->
 <% unless  current_member == member%>
   <% if current_member.following?(member) %>
-  <%= link_to "フォローを外す",member_relationships_path(member.id), method: :delete, class: 'btn btn-primary'%>
+  <%= link_to "フォロー外す",member_relationships_path(member.id), method: :delete, class: 'btn btn-danger'%>
   <% else %>
-  <%= link_to "フォローする",member_relationships_path(member.id), method: :post,class: 'btn btn-success'%>
+  <%= link_to "フォローする",member_relationships_path(member.id), method: :post,class: 'btn btn-primary'%>
   <% end %>
 <% end %>

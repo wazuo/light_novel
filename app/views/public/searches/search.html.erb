@@ -1,11 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-2 text-center">
+      <%= render 'public/members/info' , member: current_member%>
+      <%= link_to 'ユーザー一覧',members_path,class: 'btn btn-info mt-2 btn-block'%>
+    </div>
+    <div class="col-10">
       <% if @model == 'member'%>
-        <h3>ユーザの検索結果 "<%= @content %>"の該当一覧 (検索カテゴリー) <%= @search %></h3>
+        <h3 class="text-center">検索対象："ユーザ" <br> 検索カテゴリー: "<%= @search %>" <br>検索内容："<%= @content %>"の該当一覧 </h3>
         <%= render 'public/members/index', members: @records %>
       <% elsif @model == 'manga' %>
-        <h3>マンガの検索結果 "<%= @content %>"の該当一覧 (検索カテゴリー）<%= @search%></h3>
+        <h3 class="text-center">検索対象："ユーザ" <br> 検索カテゴリー: "<%= @search %>" <br>検索内容："<%= @content %>"の該当一覧</h3>
         <%= render 'public/mangas/index', mangas: @records %>
       <% end %>
     </div>

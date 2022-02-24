@@ -1,4 +1,4 @@
-<!--会員のプロフィール編集フォーム-->
+<!--ユーザーのプロフィール編集フォーム（会員）-->
 <div class="col justify-content-center">
   <%= form_with model: member, local:true do |f| %>
     <div class="form-grop">
@@ -24,15 +24,15 @@
     </div>
     <div class="form-grop">
       <%= f.label :'自己紹介', class: 'col-md-2 form-label' %>
-      <%= f.text_area :introduction, class: 'form-controll',size: "75"%>
+      <%= f.text_area :introduction, class: 'form-controll',size: "70"%>
     </div>
     <div class="form-grop">
       <%= f.label :'Eメール', class: 'col-md-2 form-label' %>
       <%= f.text_field :email, class: 'form-controll',size: "60"%><br>
-      <%= f.submit :'保存', class: 'btn btn-success' %>
+      <%= f.submit :'保存', class: 'btn btn-success btn-block' %>
+      <%= link_to '退会する',unsubscribe_member_path(member),class: 'btn btn-danger mt-2 btn-block'%>
     </div>
-      <%= link_to 'プロフィール画面へ戻る',member_path(member),class: 'btn btn-secondary'%>
-      <%= link_to '退会する',unsubscribe_member_path(member),class: 'btn btn-danger'%>
+      <%= link_to 'プロフィール画面へ戻る',member_path(member),class: 'btn btn-secondary mt-2 btn-block'%>
   <% end %>
 </div>
 

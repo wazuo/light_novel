@@ -1,25 +1,35 @@
 <!--マンガ詳細の表示テーブル文-->
-<h4 class="">タイトル名 : <%= manga.title%></h4>
-<div class="border border">
+<div class="border border pb-2">
   <div class="text-center">
-  <%= attachment_image_tag manga, :image, :fill,300,300%>
+    <h4>タイトル名 : <%= manga.title%></h4>
+    <%= attachment_image_tag manga, :image, :fill,300,300%>
   </div>
 </div>
 <div class="d-flex">
-  <div class="border border col " id="comments-count">
-    コメント数 : <%= manga.manga_comments.count %>
+  <div class="border border col-6">
+    <div class="text-center" id="comments-count">
+      コメント数 : <%= manga.manga_comments.count %>
+    </div>
   </div>
-  <!--いいねを機能の読み込み（非同期化済み）-->
-  <div class="border border col " id="favorite_btn_<%= manga.id %>">
-    <%= render 'public/favorites/favorite_btn', manga: manga%>
+  <div class="border border col-6">
+    <div class="text-center" id="favorite_btn_<%= manga.id %>">
+    <!--いいねボタンの読み込み（非同期化済み）-->
+        <%= render 'public/favorites/favorite_btn', manga: manga%>
+    </div>
   </div>
 </div>
-<table class="table table-bordered">
+<table class="table table-bordered text-center">
   <thead>
     <tr>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>投稿者</td>
+      <td>
+        <%= manga.member.nickname%>
+      </td>
+    </tr>
     <tr>
       <td>評価</td>
       <td>

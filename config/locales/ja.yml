@@ -21,6 +21,7 @@ ja:
         last_name_kana: '(名)'
         nickname: 'ニックネーム'
         email: 'Eメール'
+        password: 'パスワード'
       contact:
         name: '名前'
         phone_number: '電話番号'

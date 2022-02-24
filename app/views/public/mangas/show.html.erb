@@ -1,27 +1,40 @@
 <!--マンガの紹介＆感想の詳細ページ（会員）-->
 <div class="container">
   <div class="row">
+    <!--ログインユーザと投稿ユーザーが同じなら-->
+    <% if @manga.member == current_member%>
+      <div class="col-3 text-center">
+        <%= render 'public/members/info', member: @manga.member%>
+        <% if current_member == @manga.member %>
+          <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-primary mt-2'%>
+          <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger mt-2'%>
+          <%= link_to '評価一覧に戻る',mangas_path, class: 'btn btn-secondary mt-2 btn-block'%>
+        <% end %>
+      </div>
+    <% end %>
     <div class="col-9">
       <div class="border border">
         <h3 class="text-center">マンガの感想＆紹介の詳細ページ</h3>
       </div>
       <%= render 'show', manga: @manga%>
       <div id="comment-area">
-        <!--マンガの感想＆紹介のコメントの読み込み-->
+      <!--マンガ感想＆紹介のコメント一覧-->
         <%= render 'public/manga_comments/manga_comment', manga: @manga%>
       </div>
-      <!--マンガ感想＆紹介のコメント一覧-->
+        <!--マンガの感想＆紹介のコメントのフォームの読み込み-->
       <%= render 'public/manga_comments/comment_form', manga: @manga,manga_comment: @manga_comment%>
-
     </div>
-    <div class="col-3">
-      <%= render 'public/members/info', member: @manga.member%>
-
-      <% if current_member == @manga.member %>
-        <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-info'%>
-
-        <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%>
-      <% end %>
-    </div>
+    <!--ログインユーザーと投稿ユーザーが違うなら-->
+    <% unless @manga.member == current_member%>
+      <div class="col-3 text-center">
+        <!--ユーザ情報の読み込み-->
+        <%= render 'public/members/info', member: @manga.member%>
+        <!--フォローボタンの読み込み-->
+        <div class="mt-2">
+          <%= render 'public/relationships/follow-btn', member: @manga.member%>
+        </div>
+        <%= link_to '評価一覧に戻る',mangas_path, class: 'btn btn-secondary mt-2'%>
+      </div>
+    <% end %>
   </div>
 </div>
