@@ -6,8 +6,10 @@
       <div class="col-3 text-center">
         <%= render 'public/members/info', member: @manga.member%>
         <% if current_member == @manga.member %>
-          <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-primary mt-2'%>
-          <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger mt-2'%>
+          <div class="d-flex justify-content-between">
+            <%= link_to '投稿編集',edit_manga_path(@manga), class: 'btn btn-primary mt-2 col-6'%>
+            <%= link_to '削除',manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger mt-2 col-6'%>
+          </div>
           <%= link_to '評価一覧に戻る',mangas_path, class: 'btn btn-secondary mt-2 btn-block'%>
         <% end %>
       </div>
@@ -27,13 +29,14 @@
     <!--ログインユーザーと投稿ユーザーが違うなら-->
     <% unless @manga.member == current_member%>
       <div class="col-3 text-center">
+        <h4>投稿者</h4>
         <!--ユーザ情報の読み込み-->
         <%= render 'public/members/info', member: @manga.member%>
         <!--フォローボタンの読み込み-->
         <div class="mt-2">
           <%= render 'public/relationships/follow-btn', member: @manga.member%>
         </div>
-        <%= link_to '評価一覧に戻る',mangas_path, class: 'btn btn-secondary mt-2'%>
+        <%= link_to '評価一覧に戻る',mangas_path, class: 'btn btn-secondary btn-block mt-2'%>
       </div>
     <% end %>
   </div>

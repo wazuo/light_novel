@@ -3,7 +3,9 @@
   <tbody>
     <tr>
       <td  id="profile_image">プロフィール画像</td>
-      <td class="image"><%= attachment_image_tag member, :profile_image, :fill,200,200, fallback: "no_image.jpg",class: "rounded mx-auto rounded-circle pt-4 pb-4"%></td>
+      <td>
+        <%= attachment_image_tag member, :profile_image, :fill,200,200, fallback: "no_image.jpg",class: "rounded mx-auto rounded-circle pt-4 pb-4"%>
+      </td>
     <tr>
       <td>ニックネーム</td>
       <td><%= member.nickname%></td>
