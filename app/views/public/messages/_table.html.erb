@@ -1,11 +1,22 @@
-<table class="table text-center" id="message">
+<table class="table table table-borderless  rounded" id="message">
+  <!--table table-borderless-->
   <thead>
     <tr>
-      <th><%= current_member.nickname%></th>
-      <th><%= @member.nickname%></th>
+      <th class="col-6 text-center">
+        <%= link_to member_path(current_member) do%>
+          <%= attachment_image_tag current_member, :profile_image, :fill,70,70,fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%>
+          <%= current_member.nickname%>
+        <% end %>
+      </th>
+      <th>
+        <%= link_to member_path(member) do%>
+          <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%>
+          <%= member.nickname%>
+        <% end %>
+      </th>
     </tr>
   </thead>
-  <% @messages.each do |message| %>
+  <% messages.each do |message| %>
   <% if message.member_id == current_member.id%>
   <%= render 'message', message: message%>
    <% else %>
@@ -13,7 +24,7 @@
       <tr>
         <th></th>
         <th>
-          <p class="text-right"><%= message.message%></p>
+          <p class="text-center border rounded-circle pt-3 pb-3 bg-success text-wrap col-6 mx-auto"><%= message.message%></p>
         </th>
       </tr>
     </tbody>

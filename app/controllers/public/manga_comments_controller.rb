@@ -1,6 +1,6 @@
 class Public::MangaCommentsController < ApplicationController
   before_action :authenticate_member!
-
+  before_action :ensure_current_member ,only:[:destroy]
   # 投稿に対するコメントの作成
   def create
     # 投稿するためのマンガのidの習得
@@ -29,4 +29,12 @@ class Public::MangaCommentsController < ApplicationController
     params.require(:manga_comment).permit(:comment)
   end
 
+  def ensure_current_member
+  @manga = Manga.find(params[:id])
+  @comment = @manga.manga_comment
+  unless @comment.member == current_member
+    flash[:alert] = '権限がありません'
+    redirect_to mangas_path
+  end
+  end
 end

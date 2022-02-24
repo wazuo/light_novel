@@ -2,8 +2,11 @@
   <div class="row">
     <div class="col text-center">
       <h2><%= @member.nickname %>とメッセージ</h2>
-      <%= render 'table',member: @member%>
+      <!--メッセージ一覧-->
+      <%= render 'table',member: @member, messages: @messages%>
+      <!--メッセージ投稿フォーム-->
       <%= render 'form', message: @message%>
+      <%= link_to 'プロフィール詳細ページに戻る',edit_member_path(current_member),class: 'btn btn-secondary'%>
     </div>
   </div>
 </div>
