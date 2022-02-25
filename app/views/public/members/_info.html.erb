@@ -1,6 +1,7 @@
 <!--ユーザの画面（会員）-->
 <% if current_member == member %>
   <div class="text-center h5">ログイン <br>ユーザー</div>
+<% else %>
 <% end %>
 <div>
   <%= link_to member_path(member) do%>

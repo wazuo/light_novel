@@ -6,7 +6,7 @@
         <h3><%= @member.nickname%>さんのプロフィール</h3>
       </div>
       <!--プロフィール詳細のテーブルを読み込む-->
-      <%= render 'table', member: @member%>
+      <%= render 'show', member: @member%>
       <div>
         <% if current_member == @member %>
         <div class=" d-flex justify-content-between">

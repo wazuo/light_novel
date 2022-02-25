@@ -1,0 +1,17 @@
+<!--プロフィール詳細-->
+<div class="d-flex">
+  <div class="border bordered col-6 h4 m-0 pt-3 pb-3 " id="profile_image">プロフィール画像</div>
+  <div class="border bordered col-6 h4 m-0 pt-3 pb-3"><%= attachment_image_tag member, :profile_image, :fill,100,100, fallback: "no_image.jpg",class: "rounded mx-auto rounded-circle pt-4 pb-4"%></div>
+</div>
+<div class="d-flex">
+  <div class="border bordered col-6 h4 m-0 pt-3 pb-3">ニックネーム</div>
+  <div class="border bordered col-6 h4 m-0 pt-3 pb-3"><%= member.nickname%></div>
+</div>
+<div class="d-flex">
+  <div class="border bordered col-6 h4 m-0 pt-5 pb-5" id="introduction">自己紹介</div>
+  <div class="border bordered col-6 h4 m-0 pt-5 pb-5" id="introduction-text"><%= member.introduction%></div>
+</div>
+<div class="d-flex mb-3">
+  <div class="border bordered col-6 h4 pb-3"><%= link_to 'フォロー数 ' + member.followings.count.to_s ,following_member_path(member), class: 'text-dark'%></div>
+  <div class="border bordered col-6 h4 pb-3"><%= link_to 'フォロワー数 ' + member.followers.count.to_s ,followers_member_path(member), class: 'text-dark'%></div>
+</div>
