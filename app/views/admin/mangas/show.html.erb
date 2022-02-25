@@ -10,8 +10,8 @@
     </div>
     <div class="col-3">
       <%= render 'admin/members/info', member: @manga.member %>
-      <%= link_to '削除',admin_manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%>
-      <%= link_to 'マンガ評価一覧へ',admin_mangas_path,class: 'btn btn-info'%>
+      <%= link_to 'マンガ評価一覧へ',admin_mangas_path,class: 'btn btn-info btn-block mt-3'%>
+      <%= link_to '削除',admin_manga_path(@manga),method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger btn-block'%>
     </div>
   </div>
 </div>

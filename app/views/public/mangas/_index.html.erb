@@ -44,7 +44,11 @@
         });
         </script>
       </td>
-      <td class="pt-4 pb-4"><%= manga.member.nickname%></td>
+      <td class="pt-4 pb-4">
+        <%= link_to member_path(manga.member) do%>
+          <%= manga.member.nickname%>
+        <% end %>
+      </td>
       <td class="pt-4 pb-4"><%= link_to '詳細',manga_path(manga),class: 'btn btn-secondary'%></td>
       <% if current_member == manga.member%>
       <td class="pt-4 pb-4"><%= link_to '削除',manga_path(manga),method: :delete,"data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%></td>
