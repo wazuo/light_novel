@@ -3,7 +3,6 @@
   <thead>
     <tr>
       <th>ユーザー名</th>
-      <th>自己紹介</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,7 +17,6 @@
           <%= member.nickname%>
         <% end %>
       </td>
-      <td class="pt-5 pb-5"><%= member.introduction%></td>
       <td class="pt-5 pb-5">
         <%= link_to 'フォロー数 ' + member.followings.count.to_s ,following_member_path(member), class: 'text-dark '%> <br>
         <%= link_to 'フォロワー数 ' + member.followers.count.to_s ,followers_member_path(member), class: 'text-dark'%>

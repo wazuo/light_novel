@@ -2,7 +2,6 @@
 <% if current_member == member %>
   <div class="text-center h5">ログイン <br>ユーザー</div>
 <% else %>
-<div class="text-center h4">投稿者</div>
 <% end %>
 <div>
   <%= link_to member_path(member) do%>
@@ -17,6 +16,5 @@
   <%= link_to 'フォロワー数 ' + member.followers.count.to_s ,followers_member_path(member), class: 'text-dark'%>
 </div>
 <% if current_member == member %>
- <%= link_to '新規投稿',new_manga_path, class: 'btn btn-success mt-2'%>
+ <%= link_to '新規投稿',new_manga_path, class: 'btn btn-success btn-block mt-2'%>
 <% end %>
-<%= link_to member.nickname + 'の投稿一覧',detail_member_path(member), class: 'btn btn-info mt-2'%>

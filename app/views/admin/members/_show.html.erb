@@ -1,40 +1,43 @@
-<table class="table table-bordered text-center">
-  <tbody>
-    <tr>
-      <td>会員ID</td> 
-      <td><%= @member.id%></td>
-    <tr>
-    <tr>
-      <td>プロフィール画像</td> 
-      <td><%= attachment_image_tag member, :profile_image, :fill,200,200, fallback: "no_image.jpg",class: "rounded mx-auto d-block rounded-circle"%></td>
-    <tr>
-    <tr>
-      <td>名前</td>
-      <td><%= @member.first_name%>　<%= @member.last_name%></td>
-    <tr>
-      <td>フリガナ</td>
-      <td><%= @member.first_name_kana%>　<%= @member.last_name_kana%></td>
-    <tr>
-      <td>ニックネーム</td>
-      <td><%= member.nickname%></td>
-    </tr>
-    <tr>
-      <td>自己紹介</td>
-      <td><%= member.introduction%></td>
-    </tr>
-    <tr>
-      <td>Email</td>
-      <td><%= member.email%></td>
-    </tr>
-    <tr>
-      <td>会員ステータス</td>
-      <td>
-        <% if member.is_deleted == true%>
-          <p class="text-danger">退会</p>
-        <% else %>
-          <p class="text-success">有効</p>
-        <% end %>
-        </td>
-    </tr>
-  </tbody>
-</table>
+<!--プロフィール詳細(会員）-->
+<div class="text-center">
+  <div class="d-flex">
+    <div class="border bordered col-6 m-0 pt-3 pb-3 ">会員</div>
+    <div class="border bordered col-6 m-0 pt-3 pb-3"><%= @member.id%></div>
+  </div>
+  <div class="d-flex">
+    <div class="border bordered col-6 m-0 pt-3 pb-3 " id="profile_image">プロフィール画像</div>
+    <div class="border bordered col-6 m-0 pt-3 pb-3">
+      <%= attachment_image_tag member, :profile_image, :fill,100,100, fallback: "no_image.jpg",class: "rounded mx-auto rounded-circle pt-4 pb-4"%>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="border bordered col-6 m-0 pt-3 pb-3">名前</div>
+    <div class="border bordered col-6 m-0 pt-3 pb-3"><%= @member.first_name%>　<%= @member.last_name%></div>
+  </div>
+  <div class="d-flex">
+    <div class="border bordered col-6 m-0 pt-3 pb-3">フリガナ</div>
+    <div class="border bordered col-6 m-0 pt-3 pb-3"><%= @member.first_name_kana%>　<%= @member.last_name_kana%></div>
+  </div>
+  <div class="d-flex">
+    <div class="border bordered col-6 m-0 pt-3 pb-3">ニックネーム</div>
+    <div class="border bordered col-6 m-0 pt-3 pb-3"><%= member.nickname%></div>
+  </div>
+  <div class="d-flex">
+    <div class="border bordered col-6 m-0 pt-5 pb-5" id="introduction">自己紹介</div>
+    <div class="border bordered col-6 m-0 pt-5 pb-5" id="introduction-text"><%= member.introduction%></div>
+  </div>
+  <div class="d-flex">
+    <div class="border bordered col-6 m-0 pt-5 pb-5" id="introduction">Eメール</div>
+    <div class="border bordered col-6 m-0 pt-5 pb-5" id="introduction-text"><%= member.email%></div>
+  </div>
+  <div class="d-flex">
+    <div class="border bordered col-6 mb-4 pt-5 pb-5" id="introduction">会員ステータス</div>
+    <div class="border bordered col-6 mb-4 pt-5 pb-5" id="introduction-text">
+      <% if member.is_deleted == true%>
+        <p class="text-danger">退会</p>
+      <% else %>
+        <p class="text-success">有効</p>
+      <% end %>
+    </div>
+  </div>
+</div>

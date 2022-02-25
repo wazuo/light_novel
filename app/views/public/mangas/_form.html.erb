@@ -9,8 +9,8 @@
     <%= f.label :title, "マンガのタイトル" %> <br>
     <%= f.text_field :title,autofocus: true, class: 'form-control' %>
   </div>
-   <div class="form-group" id="star">
-    <%= f.label :review,'評価 ', class:'col-md-3 col-form-label' %>
+  <div class="text-center mb-2">評価</div>
+  <div class="form-group" id="star">
     <%= f.hidden_field :review, id: :review_star %>
   </div>
 
@@ -36,9 +36,11 @@
     <%= f.label :impression, "感想" %> <br>
     <%= f.text_area :impression,rows: '5',autofocus: true, class: 'form-control'%> <br>
     <% if local_assigns[:edit_flag].present? %>
-      <%= f.submit '更新', class: 'btn btn-info btn-block'%>
+      <%= f.submit '更新', class: 'btn btn-success btn-block'%>
+      <%= link_to '詳細画面へ戻る',manga_path(manga), class: 'btn btn-secondary btn-block mt-3'%>
     <% else %>
       <%= f.submit '投稿', class: 'btn btn-success btn-block'%>
+    <%= link_to '評価一覧へ戻る',mangas_path, class: 'btn btn-secondary btn-block mt-3'%>
     <% end %>
   </div>
 <% end %>

@@ -6,22 +6,26 @@
         <h3><%= @member.nickname%>さんのプロフィール</h3>
       </div>
       <!--プロフィール詳細のテーブルを読み込む-->
-      <%= render 'table', member: @member%>
+      <%= render 'show', member: @member%>
       <div>
         <% if current_member == @member %>
-          <%= link_to 'プロフィール編集',edit_member_path, class: 'btn btn-secondary '%>
-          <%= link_to 'マンガ紹介＆感想新規投稿',new_manga_path,class: 'btn btn-success '%>
+        <div class=" d-flex justify-content-between">
+          <%= link_to 'プロフィール編集',edit_member_path, class: 'btn btn-secondary col-3 '%>
+          <%= link_to 'マンガ紹介＆感想新規投稿',new_manga_path,class: 'btn btn-success col-3 '%>
+          <%= link_to '退会する',unsubscribe_member_path,class: 'btn btn-danger col-3 '%>
+        </div>
         <% end %>
       </div>
-      <% if current_member != @member%>
-        <%= link_to 'メッセージを送る',message_path(@member),class: 'btn btn-dark'%>
-      <% end %>
-      <!--フォローのボタンを読み込む-->
-      <%= render 'public/relationships/follow-btn',member: @member%>
-      <div class="text-center mt-2">
-        <%= link_to @member.nickname + 'の評価一覧',detail_member_path,class: 'btn btn-info'%>
-        <%= link_to 'マンガ評価一覧',mangas_path,class: 'btn btn-info'%>
-        <%= link_to 'ユーザー一覧',members_path,class: 'btn btn-info'%>
+        <!--ログインユーザーと違うなら-->
+        <% if current_member != @member%>
+          <%= link_to 'メッセージを送る',message_path(@member),class: 'btn btn-dark btn-block'%>
+        <% end %>
+        <!--フォローのボタンを読み込む-->
+        <%= render 'public/relationships/follow-btn',member: @member%>
+      <div class="text-center mt-4 d-flex justify-content-between">
+        <%= link_to @member.nickname + 'の評価一覧',detail_member_path,class: 'btn btn-info col-3'%>
+        <%= link_to 'マンガ評価一覧',mangas_path,class: 'btn btn-light col-3'%>
+        <%= link_to 'ユーザー一覧',members_path,class: 'btn btn-warning col-3'%>
       </div>
     </div>
   </div>
