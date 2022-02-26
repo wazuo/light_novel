@@ -4,5 +4,5 @@ class Message < ApplicationRecord
   belongs_to :room
 
   # バリデーション機能
-  validates :message, presence:true
+  validates :message, presence: true
 end
