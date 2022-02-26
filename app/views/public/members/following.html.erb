@@ -6,7 +6,7 @@
         <%= render 'public/members/info',member: current_member%>
         <%= link_to 'プロフィール画面',member_path(current_member), class: 'btn btn-secondary btn-block'%>
       </div>
-    <% end %>    
+    <% end %>
     <div class="col">
       <div class="border border">
         <h3 class="text-center"><%= @member.nickname%>さんのフォロー一覧</h3>
@@ -19,6 +19,6 @@
         <%= render 'public/members/info',member: @member%>
         <%= link_to 'プロフィール画面',member_path(current_member), class: 'btn btn-secondary btn-block'%>
       </div>
-    <% end %>    
+    <% end %>
   </div>
 </div>

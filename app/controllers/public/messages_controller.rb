@@ -1,12 +1,14 @@
 class Public::MessagesController < ApplicationController
   before_action :authenticate_member!
+
   def show
     # メッセージを送る会員の情報を習得
     @member = Member.find(params[:id])
     # entriesテーブルのmember_idさんがcurrent_memberのレコードのroom_idを配列で習得
     rooms = current_member.entries.pluck(:room_id)
-    # member_idが(@member)で、room_idがcurrent_memberの属するroom_id(配列)となるentriesテーブルののレコードを取得して、entry変数に格納
-    # これによって、current_memberと@memberに共通のroom_idが存在していればｍその共通のroom_idと@memberのmember_idがentrie変数に格納される（1レコード）。存在しなければ、nillになる。
+    # member_idが(@member)で,room_idがcurrent_memberの属するroom_id(配列)となるentriesテーブルののレコードを取得して、
+    # entry変数に格納これによって、current_memberと@memberに共通のroom_idが存在していれば
+    # その共通のroom_idと@memberのmember_idがentrie変数に格納される（1レコード）。存在しなければ、nillになる。
     entry = Entry.find_by(member_id: @member.id, room_id: rooms)
 
     # entryでルームを取得できなかった（current_memberと@memberのチャットがまだ存在しない）場合の処理
@@ -40,6 +42,4 @@ class Public::MessagesController < ApplicationController
   def message_params
     params.require(:message).permit(:message, :room_id)
   end
-
-
 end

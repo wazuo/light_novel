@@ -10,11 +10,10 @@ class Admin::MangasController < ApplicationController
   def show
     @manga = Manga.find(params[:id])
   end
-  
+
   def destroy
     @manga = Manga.find(params[:id])
     @manga.destroy
-    redirect_to admin_mangas_path,notice: '削除しました'
+    redirect_to admin_mangas_path, notice: '削除しました'
   end
-
 end
