@@ -22,7 +22,7 @@ Member.create!(
       last_name_kana: 'キョウコ',
       nickname: 'ウサ丸',
       profile_image: File.open("./app/assets/images/rabit.jpg"),
-      introduction: 'Re：ゼロから始める異世界生活が好きです。異世界ものが好きなのでよろしくお願いします'
+      introduction: 'マンガ大好きです。よろしくお願いします。'
     },
     {
       email: 'test2@member',
@@ -45,7 +45,7 @@ Member.create!(
       last_name_kana: 'ユイ',
       nickname: 'モニカ',
       profile_image: File.open("./app/assets/images/22503047.jpg"),
-      introduction: 'ラブコメが好きなのでオススメがあれば教えてください'
+      introduction: 'Re：ゼロから始める異世界生活が好きです。異世界ものが好きなのでよろしくお願いします'
     },
     {
       email: 'test4@member',
@@ -100,7 +100,7 @@ Member.create!(
       nickname: 'ワズボン',
       is_deleted: 'true',
       profile_image: File.open("./app/assets/images/22486164.jpg"),
-      introduction: 'マンガ大好きです。よろしくお願いします。'
+      introduction: 'オススメあれば教えてください!'
     },
     {
       email: 'waiton@com',
@@ -112,7 +112,7 @@ Member.create!(
       nickname: 'ネム',
       is_deleted: 'true',
       profile_image: File.open("./app/assets/images/22472552.jpg"),
-      introduction: 'マンガ大好きです。よろしくお願いします。'
+      introduction: 'ラブコメが好きなのでオススメがあれば教えてください'
     }
   ]
 )
