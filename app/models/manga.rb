@@ -7,6 +7,8 @@ class Manga < ApplicationRecord
   # バリデーション機能
   validates :title, presence: true
   validates :review, presence: true
+  validates :impression, presence: true
+  validates :introduction, presence: true
 
   def favorited_by?(member)
     favorites.where(member_id: member.id).exists?

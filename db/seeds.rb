@@ -170,7 +170,7 @@ Manga.create!(
   ]
 )
 
-9.times do |n|
+5.times do |n|
   Manga.create(
   [
     {
@@ -197,8 +197,8 @@ end
   Manga.create(
       member_id:5,
       title: "五等分の花嫁#{n+1}",
-      introduction: '今、流行っているマンガです！ぜひ皆さんも読んでください',
-      impression: 'バトル系のマンガでキャラクターも魅力的です。',
+      introduction: '今年の夏に映画化が決まっているマンガです',
+      impression: '五人の内一人が主人公の花嫁です。皆さんは誰を押しますか？',
       image: File.open("./app/assets/images/9784065186879_600.jpg"),
       review: 4.5
 )
