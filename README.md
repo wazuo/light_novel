@@ -26,7 +26,7 @@
 
 ## 設計書
 [ER図](https://app.diagrams.net/#G1PswDBcaVQjz6xcZE34g9kZxqNn7mwiFZ)
-<準備中>
+[テーブル定義書](https://docs.google.com/spreadsheets/d/1mu9NyCsyGwWwRW3ysTCVIBC4sSefT9FCRCtoUwVSMSA/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1q86DDfEmrQGdpbyIb7WkXv5o3WgEdU09HYMV2Uod28o/edit#gid=1600818236>
@@ -41,4 +41,3 @@
 ## 使用素材
 - [https://www.irasutoya.com/2013/09/blog-post_3988.html]
 - [https://www.hanmoto.com]
-- 使用検討中です
