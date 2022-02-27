@@ -1,0 +1,36 @@
+<!--ユーザ一覧の表示テーブル（会員）-->
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th>ユーザー名</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% members.each do |member|%>
+    <tr>
+      <td>
+        <%= link_to member_path(member) do%>
+          <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg", class: "rounded rounded-circle"%> <br>
+          <%= member.nickname%>
+        <% end %>
+      </td>
+      <td class="pt-5 pb-5">
+        <%= link_to 'フォロー数 ' + member.followings.count.to_s ,following_member_path(member), class: 'text-dark '%> <br>
+        <%= link_to 'フォロワー数 ' + member.followers.count.to_s ,followers_member_path(member), class: 'text-dark'%>
+      </td>
+      <td class="pt-5 pb-5">
+        <%= link_to '詳細' ,member_path(member), class: 'btn btn-secondary'%>
+      </td>
+      <td class="pt-5 pb-5"><!--フォローボタンの読み込み-->
+        <%= render 'public/relationships/follow-btn',member: member%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination">
+  <%= paginate members%>
+</div>

@@ -1,0 +1,6 @@
+<%= form_with model: message, remote: true do |f| %>
+  <%= f.text_area :message,row: '50',cols: '100', placeholder: 'メッセージ記入欄（空欄送信不可）' %>
+  <script>document.getElementById('message_message')</script>
+  <%= f.hidden_field :room_id %>
+  <%= f.submit '送信',class: "btn btn-success", id: "comment_submit" %>
+<% end %>

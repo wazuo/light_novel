@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <%= render 'layouts/errors',object: @contact%>
+      <%= form_with model: @contact,url: confirm_contacts_path,method: :post, local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :name, 'お名前*' %>
+          <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :phone_number, '電話番号*' %>
+          <%= f.text_field :phone_number, autofocus: true, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, 'Eメール*' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :subject, 'お問い合わせ件名*' %>
+          <%= f.select :subject, Contact.subjects_i18n.keys.map{|k|[I18n.t("enums.contact.subject.#{k}"), k]} %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :message, 'メッセージ*' %>
+          <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+        </div>
+
+        <div>
+          <%= f.submit '入力内容確認' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

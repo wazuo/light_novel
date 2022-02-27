@@ -1,0 +1,35 @@
+<!--ユーザのフォローテーブル（会員）-->
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>フォロー数</th>
+      <th>フォロワー数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% follow.each do |member|%>
+    <tr>
+      <td>
+        <%= link_to member_path(member) do%>
+          <%= attachment_image_tag member, :profile_image, :fill,70,70,fallback: "no_image.jpg",class: "rounded rounded-circle"%> <br>
+          <%= member.nickname%>
+        <% end%>
+      </td>
+      <td>
+        <%= link_to following_member_path(member) do%>
+          <%= member.followings.count%>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to followers_member_path(member) do%>
+          <%= member.followers.count%>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination">
+  <%= paginate follow%>
+</div>

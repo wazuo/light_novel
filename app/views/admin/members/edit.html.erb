@@ -1,0 +1,10 @@
+<!--会員編集画面（管理者）-->
+<div class="container">
+  <div class="col">
+    <h4 class="text-center">
+      <%= @member.first_name%> <%= @member.last_name%>のプロフィール編集
+    </h4>
+      <!--プロフィール編集のformのを読み込む-->
+      <%= render 'form',member: @member%>
+  </div>
+</div>

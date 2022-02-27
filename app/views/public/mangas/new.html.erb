@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row ">
+    <div class="col mx-auto">
+      <%= render 'layouts/errors',object: @manga%>
+      <div class="border border-danger ">
+        <h3 class="text-center">マンガの感想＆紹介新規投稿</h3>
+      </div>
+      <%= render 'form', manga: @manga%>
+    </div>
+  </div>
+</div>

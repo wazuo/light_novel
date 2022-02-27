@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h3>
+        マンガ好きのユートピアへようこそ！<br>
+        このサイトはマンガの紹介を通じて多くの<br>
+        マンガ好きと交流できるSNSサイトです。<br>
+        ご利用されるには会員の登録が必要です。
+      </h3>
+      <div class="d-flex justify-content-center mt-4">
+        <% if member_signed_in? %>
+          <%= link_to 'ログアウト',destroy_member_session_path, method: :delete, class: "btn btn-danger col-5"%>
+        <% elsif admin_signed_in? %>
+          <%= link_to 'ログアウト',destroy_admin_session_path, method: :delete, class: "btn btn-danger col-6"%>
+        <% else%>
+          <%= link_to '新規登録へ',new_member_registration_path,class: "btn btn-success col-3 mr-3"%>
+          <%= link_to 'ログイン画面へ',new_member_session_path,class: "btn btn-info col-3 ml-3"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

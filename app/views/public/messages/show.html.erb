@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h2><%= @member.nickname %>とメッセージ</h2>
+      <!--メッセージ一覧-->
+      <%= render 'table',member: @member, messages: @messages%>
+      <!--メッセージ投稿フォーム-->
+      <div id="message_form">
+        <%= render 'form', message: @message%>
+      </div>
+      <%= link_to 'プロフィール詳細ページに戻る',member_path(@member),class: 'btn btn-secondary btn-block mt-3'%>
+    </div>
+  </div>
+</div>

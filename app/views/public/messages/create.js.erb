@@ -1,0 +1,4 @@
+<% unless @message.errors.any? %>
+  $('#message').append("<%= j(render 'public/messages/message',message: @message)%>");
+  $('#message_message').val("");
+<% end %>

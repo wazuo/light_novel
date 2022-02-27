@@ -3,7 +3,7 @@
 ## サイト概要
 自分の好きなマンガの紹介や感想を通じて多くの人とつながるSNSサイトです。
 機能に関してはマンガの画像、感想、紹介の投稿、投稿に対していいねやコメントができます。
-さらに、自分のお気に入りの人がいれば、フォローすることができるので、好きなマンガを読んでいる人とたくさんつながれるようになっています。
+さらに、ユーザー同士のDM機能やフォロー機能があるので、好きなマンガを読んでいる人とたくさんつながれるようになっています。
 そのため自分の好きなマンガ紹介を通じて多くのマンガ好きとつながれるサイトになっています。
 
 ### サイトテーマ
@@ -25,11 +25,11 @@
 - 気になっているマンガの評価を知りたい時
 
 ## 設計書
-[ER図](https://app.diagrams.net/#G1PswDBcaVQjz6xcZE34g9kZxqNn7mwiFZ)
-<準備中>
+- [ER図](https://app.diagrams.net/#G1PswDBcaVQjz6xcZE34g9kZxqNn7mwiFZ)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1mu9NyCsyGwWwRW3ysTCVIBC4sSefT9FCRCtoUwVSMSA/edit?usp=sharing)
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1q86DDfEmrQGdpbyIb7WkXv5o3WgEdU09HYMV2Uod28o/edit#gid=1600818236>
+- [チャレンジ要素一覧](<https://docs.google.com/spreadsheets/d/1q86DDfEmrQGdpbyIb7WkXv5o3WgEdU09HYMV2Uod28o/edit#gid=1600818236>)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -39,4 +39,6 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です
+- [https://www.irasutoya.com]
+- [https://www.hanmoto.com]
+- [https://www.ac-illust.com]

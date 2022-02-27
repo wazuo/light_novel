@@ -1,0 +1,46 @@
+<!--マンガの感想＆紹介の投稿フォーム-->
+<%= form_with model: manga,class: "text-center", local:true do |f| %>
+  <div class="form-grop">
+    <%= f.label :image, "マンガの画像"%> <br>
+    <%= attachment_image_tag manga, :image, :fill,60,60, fallback: "no_image.jpg"%>
+    <%= f.attachment_field :image %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title, "マンガのタイトル" %> <br>
+    <%= f.text_field :title,autofocus: true, class: 'form-control' %>
+  </div>
+  <div class="text-center mb-2">評価</div>
+  <div class="form-group" id="star">
+    <%= f.hidden_field :review, id: :review_star %>
+  </div>
+
+  <!-- 評価javascript -->
+  <script>
+  $('#star').empty();
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    // 星の保存内容の表示（rederで読みこむと新規登録ができなくなるので新たなrender.file(_new.html.erb)を作ることになった要因
+    score: <%= manga.review ||= 0 %>,
+    scoreName: 'manga[review]',
+    half: true,
+  });
+  </script>
+  <div class="form-group">
+    <%= f.label :introduction, "紹介" %> <br>
+    <%= f.text_area :introduction,rows:'5',autofocus: true, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :impression, "感想" %> <br>
+    <%= f.text_area :impression,rows: '5',autofocus: true, class: 'form-control'%> <br>
+    <% if local_assigns[:edit_flag].present? %>
+      <%= f.submit '更新', class: 'btn btn-success btn-block'%>
+      <%= link_to '詳細画面へ戻る',manga_path(manga), class: 'btn btn-secondary btn-block mt-3'%>
+    <% else %>
+      <%= f.submit '投稿', class: 'btn btn-success btn-block'%>
+    <%= link_to '評価一覧へ戻る',mangas_path, class: 'btn btn-secondary btn-block mt-3'%>
+    <% end %>
+  </div>
+<% end %>

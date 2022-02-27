@@ -1,0 +1,62 @@
+<!--マンガの評価一覧-->
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <th></th>
+      <th>マンガのタイトル</th>
+      <th>評価</th>
+      <th>投稿者</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% mangas.each do |manga|%>
+    <tr>
+        <td class="">
+          <%= link_to manga_path(manga) do%>
+            <%=  attachment_image_tag manga, :image, :fill,60,60,fallback: "no_image.jpg" %>
+          <% end %>
+        </td>
+        <td class="pt-4 pb-4">
+          <%= link_to manga_path(manga) do%>
+            <%= manga.title%>
+          <% end %>
+        </td>
+      <td>
+        <!--(星の数値）-->
+        <div>
+            評価:<%= manga.review%>
+        </div>
+        <!--星評価-->
+        <div id="star-rate-<%= manga.id %>">
+        </div>
+        <script>
+        $('#star-rate-<%= manga.id %>').empty();
+        $('#star-rate-<%= manga.id %>').raty({
+          size: 36,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= manga.review %>,
+        });
+        </script>
+      </td>
+      <td class="pt-4 pb-4">
+        <%= link_to member_path(manga.member) do%>
+          <%= manga.member.nickname%>
+        <% end %>
+      </td>
+      <td class="pt-4 pb-4"><%= link_to '詳細',manga_path(manga),class: 'btn btn-secondary'%></td>
+      <% if current_member == manga.member%>
+      <td class="pt-4 pb-4"><%= link_to '削除',manga_path(manga),method: :delete,"data-confirm" => "本当に削除しますか？", class: 'btn btn-danger'%></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="pagination">
+  <%= paginate mangas%>
+</div>
