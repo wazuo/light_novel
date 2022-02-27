@@ -30,12 +30,11 @@ Member.create!(
       first_name: '品川',
       last_name: '健太',
       first_name_kana: 'シナガワ',
-      is_deleted: 'true',
       last_name_kana: 'ケンタ',
       nickname: 'ケン',
+      is_deleted: 'true',
       profile_image: File.open("./app/assets/images/22486120.jpg"),
       introduction: '色んなジャンルを読みます。日常系やファンタジーなど。オススメがあればぜひ教えてください'
-
     },
     {
       email: 'test3@member',
@@ -47,7 +46,73 @@ Member.create!(
       nickname: 'モニカ',
       profile_image: File.open("./app/assets/images/22503047.jpg"),
       introduction: 'ラブコメが好きなのでオススメがあれば教えてください'
-
+    },
+    {
+      email: 'test4@member',
+      password: 'testmember',
+      first_name: '小松',
+      last_name: '卓也',
+      first_name_kana: 'コマツ',
+      last_name_kana: 'タクヤ',
+      nickname: 'シャクソン',
+    },
+    {
+      email: 'sora@member',
+      password: 'testmember',
+      first_name: '服部',
+      last_name: '天',
+      first_name_kana: 'ハットリ',
+      last_name_kana: 'ソラ',
+      nickname: 'ソラ',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22503868.jpg"),
+      introduction: '日常系が好きです。特に学生系のマンガが好きです！'
+    },
+    {
+      email: 'miyu@lovely',
+      password: 'testmember',
+      first_name: '新田',
+      last_name: '美優',
+      first_name_kana: 'ニッタ',
+      last_name_kana: 'ミユ',
+      nickname: 'ミユ',
+      profile_image: File.open("./app/assets/images/22568612.jpg"),
+      introduction: 'ラブコメやほのぼの系統のマンガが好きです！'
+    },
+    {
+      email: 'tera@com',
+      password: 'testmember',
+      first_name: '寺本',
+      last_name: '優希',
+      first_name_kana: 'テラモト',
+      last_name_kana: 'ユウキ',
+      nickname: 'モニカ',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22565317.jpg"),
+    },
+    {
+      email: 'wazubon@com',
+      password: 'testmember',
+      first_name: '野田',
+      last_name: '悠斗',
+      first_name_kana: 'ノダ',
+      last_name_kana: 'ユウト',
+      nickname: 'ワズボン',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22486164.jpg"),
+      introduction: 'マンガ大好きです。よろしくお願いします。'
+    },
+    {
+      email: 'waiton@com',
+      password: 'testmember',
+      first_name: '小林',
+      last_name: '佳奈',
+      first_name_kana: 'コバヤシ',
+      last_name_kana: 'カナ',
+      nickname: 'ネム',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22472552.jpg"),
+      introduction: 'マンガ大好きです。よろしくお願いします。'
     }
   ]
 )

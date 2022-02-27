@@ -25,11 +25,11 @@
 - 気になっているマンガの評価を知りたい時
 
 ## 設計書
-[ER図](https://app.diagrams.net/#G1PswDBcaVQjz6xcZE34g9kZxqNn7mwiFZ)
-[テーブル定義書](https://docs.google.com/spreadsheets/d/1mu9NyCsyGwWwRW3ysTCVIBC4sSefT9FCRCtoUwVSMSA/edit?usp=sharing)
+- [ER図](https://app.diagrams.net/#G1PswDBcaVQjz6xcZE34g9kZxqNn7mwiFZ)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1mu9NyCsyGwWwRW3ysTCVIBC4sSefT9FCRCtoUwVSMSA/edit?usp=sharing)
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1q86DDfEmrQGdpbyIb7WkXv5o3WgEdU09HYMV2Uod28o/edit#gid=1600818236>
+- [チャレンジ要素一覧](<https://docs.google.com/spreadsheets/d/1q86DDfEmrQGdpbyIb7WkXv5o3WgEdU09HYMV2Uod28o/edit#gid=1600818236>)
 
 ## 開発環境
 - OS：Linux(CentOS)
