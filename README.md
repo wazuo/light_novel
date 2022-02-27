@@ -39,5 +39,6 @@
 - IDE：Cloud9
 
 ## 使用素材
-- [https://www.irasutoya.com/2013/09/blog-post_3988.html]
+- [https://www.irasutoya.com]
 - [https://www.hanmoto.com]
+- [https://www.ac-illust.com]
