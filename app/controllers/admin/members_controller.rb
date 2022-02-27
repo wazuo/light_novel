@@ -3,7 +3,7 @@ class Admin::MembersController < ApplicationController
   # 会員の情報関連（マイページ）：管理者側
 
   def index
-    @members = Member.all
+    @members = Member.page(params[:page]).per(8)
   end
 
   def show

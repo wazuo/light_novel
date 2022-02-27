@@ -30,12 +30,11 @@ Member.create!(
       first_name: '品川',
       last_name: '健太',
       first_name_kana: 'シナガワ',
-      is_deleted: 'true',
       last_name_kana: 'ケンタ',
       nickname: 'ケン',
+      is_deleted: 'true',
       profile_image: File.open("./app/assets/images/22486120.jpg"),
       introduction: '色んなジャンルを読みます。日常系やファンタジーなど。オススメがあればぜひ教えてください'
-
     },
     {
       email: 'test3@member',
@@ -47,7 +46,73 @@ Member.create!(
       nickname: 'モニカ',
       profile_image: File.open("./app/assets/images/22503047.jpg"),
       introduction: 'ラブコメが好きなのでオススメがあれば教えてください'
-
+    },
+    {
+      email: 'test4@member',
+      password: 'testmember',
+      first_name: '小松',
+      last_name: '卓也',
+      first_name_kana: 'コマツ',
+      last_name_kana: 'タクヤ',
+      nickname: 'シャクソン',
+    },
+    {
+      email: 'sora@member',
+      password: 'testmember',
+      first_name: '服部',
+      last_name: '天',
+      first_name_kana: 'ハットリ',
+      last_name_kana: 'ソラ',
+      nickname: 'ソラ',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22503868.jpg"),
+      introduction: '日常系が好きです。特に学生系のマンガが好きです！'
+    },
+    {
+      email: 'miyu@lovely',
+      password: 'testmember',
+      first_name: '新田',
+      last_name: '美優',
+      first_name_kana: 'ニッタ',
+      last_name_kana: 'ミユ',
+      nickname: 'ミユ',
+      profile_image: File.open("./app/assets/images/22568612.jpg"),
+      introduction: 'ラブコメやほのぼの系統のマンガが好きです！'
+    },
+    {
+      email: 'tera@com',
+      password: 'testmember',
+      first_name: '寺本',
+      last_name: '優希',
+      first_name_kana: 'テラモト',
+      last_name_kana: 'ユウキ',
+      nickname: 'モニカ',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22565317.jpg"),
+    },
+    {
+      email: 'wazubon@com',
+      password: 'testmember',
+      first_name: '野田',
+      last_name: '悠斗',
+      first_name_kana: 'ノダ',
+      last_name_kana: 'ユウト',
+      nickname: 'ワズボン',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22486164.jpg"),
+      introduction: 'マンガ大好きです。よろしくお願いします。'
+    },
+    {
+      email: 'waiton@com',
+      password: 'testmember',
+      first_name: '小林',
+      last_name: '佳奈',
+      first_name_kana: 'コバヤシ',
+      last_name_kana: 'カナ',
+      nickname: 'ネム',
+      is_deleted: 'true',
+      profile_image: File.open("./app/assets/images/22472552.jpg"),
+      introduction: 'マンガ大好きです。よろしくお願いします。'
     }
   ]
 )
@@ -71,6 +136,30 @@ Manga.create!(
       review: 3.5
     },
     {
+      member_id: 6,
+      title: 'かぐや様は告らせたい？～天才たちの恋愛頭脳戦～',
+      introduction: '天才二人による壮絶な駆け引きがあるラブコメディー',
+      impression: '二人の駆け引きが非常に面白いのでぜひ読んでください！',
+      image: File.open("./app/assets/images/9784088904320_600.jpg"),
+      review: 3.5
+    },
+    {
+      member_id: 8,
+      title: '魔法使いの嫁 ',
+      introduction: '内容は少し暗いですが、物語の内容は非常に面白いです',
+      impression: '人間と他種族の関わりが面白かったです',
+      image: File.open("./app/assets/images/9784800002846_600.jpg"),
+      review: 3.5
+    },
+    {
+      member_id: 8,
+      title: 'オーバーロード',
+      introduction: 'まさしくダークファンタジーです！',
+      impression: '内容は結構暗めです。自分は好きなので非常に面白かったです！',
+      image: File.open("./app/assets/images/9784800002846_600.jpg"),
+      review: 3.5
+    },
+    {
       member_id: 1,
       title: 'Re：ゼロから始める異世界生活 第一章 王都の一日編１',
       introduction: '異世界生活のダークファンタジーです！ジャンルはタイムリープ系に当てはまると思います',
@@ -83,11 +172,87 @@ Manga.create!(
 
 9.times do |n|
   Manga.create(
-    member_id:3,
-    title: "白聖女と黒牧師#{n+1}",
-    introduction: 'とある聖女と牧師のラブコメです。鈍感牧師が面白いのでぜひ読んでください',
-    impression: '二人の距離感が読んでいてもどかしくなってしまいます',
-    image: File.open("./app/assets/images/9784065105986_600.jpg"),
-    review: 3.5
+  [
+    {
+      member_id:3,
+      title: "白聖女と黒牧師#{n+1}",
+      introduction: 'とある聖女と牧師のラブコメです。鈍感牧師が面白いのでぜひ読んでください',
+      impression: '二人の距離感が読んでいてもどかしくなってしまいます',
+      image: File.open("./app/assets/images/9784065105986_600.jpg"),
+      review: 3.5
+    },
+    {
+      member_id:4,
+      title: "呪術廻戦#{n+1}",
+      introduction: '今、流行っているマンガです！ぜひ皆さんも読んでください',
+      impression: 'バトル系のマンガでキャラクターも魅力的です。',
+      image: File.open("./app/assets/images/9784088815169_600.jpg"),
+      review: 4.5
+    }
+  ]
   )
 end
+
+14.times do |n|
+  Manga.create(
+      member_id:5,
+      title: "五等分の花嫁#{n+1}",
+      introduction: '今年の夏に映画化が決まっているマンガです',
+      impression: '五人の内一人が主人公の花嫁です。皆さんは誰を押しますか？',
+      image: File.open("./app/assets/images/9784065186879_600.jpg"),
+      review: 4.5
+)
+end
+
+Relationship.create!(
+  [
+    {
+      follower_id: 2,
+      followed_id: 3
+    },
+    {
+      follower_id: 2,
+      followed_id: 4
+    },
+    {
+      follower_id: 3,
+      followed_id: 2
+    },
+    {
+      follower_id: 3,
+      followed_id: 4
+    },
+    {
+      follower_id: 3,
+      followed_id: 6
+    },
+    {
+      follower_id: 3,
+      followed_id: 7
+    },
+    {
+      follower_id: 4,
+      followed_id: 8
+    },
+    {
+      follower_id: 4,
+      followed_id: 5
+    },
+    {
+      follower_id: 4,
+      followed_id: 6
+    },
+    {
+      follower_id: 7,
+      followed_id: 8
+    },
+    {
+      follower_id: 7,
+      followed_id: 6
+    },
+    {
+      follower_id: 9,
+      followed_id: 2
+    },
+  ]
+)

@@ -14,6 +14,8 @@ ja:
       manga:
         title: 'タイトル'
         review: '評価(レビュー)の星'
+        introduction: '紹介'
+        impression: '感想'
       member:
         first_name: '(姓)'
         last_name: '(名)'
