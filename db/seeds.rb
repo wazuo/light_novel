@@ -170,7 +170,7 @@ Manga.create!(
   ]
 )
 
-5.times do |n|
+9.times do |n|
   Manga.create(
   [
     {
