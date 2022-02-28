@@ -3,10 +3,10 @@
     <div class="col">
       <% if @model == 'member'%>
         <h3 class="text-center">検索対象："ユーザ" <br> 検索カテゴリー: "<%= @search %>" <br>検索内容："<%= @content %>"の該当一覧 </h3>
-        <%= render 'public/members/index', members: @records %>
+        <%= render 'admin/members/index', members: @records %>
       <% elsif @model == 'manga' %>
         <h3 class="text-center">検索対象："ユーザ" <br> 検索カテゴリー: "<%= @search %>" <br>検索内容："<%= @content %>"の該当一覧</h3>
-        <%= render 'public/mangas/index', mangas: @records %>
+        <%= render 'admin/mangas/index', mangas: @records %>
       <% end %>
     </div>
   </div>
