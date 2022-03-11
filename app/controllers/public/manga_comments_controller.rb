@@ -17,12 +17,10 @@ class Public::MangaCommentsController < ApplicationController
   def destroy
     # 削除するコメントのidを習得し削除する
     @manga = Manga.find(params[:manga_id])
-    @mangacomment = MangaComment.find_by(id: params[:id])
-    if current_member.id == @mangacomment.member_id
+    @mangacomment = current_member.manga_comments.find_by(id: params[:id])
     @mangacomment.destroy
-      # 非同期化のためredirect_toは削除
-      render :index
-    end
+    # 非同期化のためredirect_toは削除
+    render :index
   end
 
   private
@@ -31,6 +29,4 @@ class Public::MangaCommentsController < ApplicationController
   def manga_comment_params
     params.require(:manga_comment).permit(:comment)
   end
-
-
 end
